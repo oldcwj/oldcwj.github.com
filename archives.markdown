@@ -2,7 +2,7 @@
 layout: default
 title: The archives
 permalink: /archives/
-date: 2002-09-09
+date: 2012-09-09
 ---
 <div class="meta">{{ page.date | | date: "%b %d, %Y"  }}</div>
 
