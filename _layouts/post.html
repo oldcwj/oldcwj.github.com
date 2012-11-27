@@ -1,15 +1,9 @@
 ---
 layout: default
 ---
-<div id="post">
-{{ content }}
-</div>
-
-<div id="related">
-  <h2>Related Posts</h2>
-  <ul class="posts">
-    {% for post in site.related_posts limit:3 %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+<div class="meta">{{ page.date | | date: "%b %d, %Y"  }}</div>
+<h2><a href="{{ page.url }}">{{ page.title }}</a></h2>
+{{ content  | replace:'acronym','abbr' }}
+<div id="navigation">
+{% if page.previous %}<div id="left"><a href="{{ page.previous.url }}"><img src="/images/move.png" alt="Older" /></a></div>{% endif %}{% if page.next %}<div id="right"><a href="{{ page.next.url }}"><img src="/images/move.png" alt="Newer" /></a></div>{% endif %}
 </div>

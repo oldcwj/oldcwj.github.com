@@ -1,2 +1,2 @@
-oldcwj.github.com
-=================
+##cuiwenjun.com
+This is my personal weblog.
