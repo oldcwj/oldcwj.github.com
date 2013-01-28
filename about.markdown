@@ -19,3 +19,5 @@ Learning
 
 * Mac desktop development(Cocoa, Objective-C)
 * Ruby on rails(ruby)
+
+oldcwj@gmail.com
