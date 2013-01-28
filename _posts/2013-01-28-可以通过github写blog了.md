@@ -1,6 +1,5 @@
 ---
 layout: post
-title: 通过github写blog
 ---
 
 {{ page.title }}
