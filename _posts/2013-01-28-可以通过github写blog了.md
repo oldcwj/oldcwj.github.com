@@ -1,1 +1,7 @@
-可以通过github写blog了，非常方便
+layout: post
+
+title: 通过github写blog
+{{ page.title }}
+28 01 2013
+
+可以通过github写blog了，cool
