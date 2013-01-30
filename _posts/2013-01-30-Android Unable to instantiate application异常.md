@@ -2,9 +2,9 @@
 layout: post
 ---
 
-  今天在安装程序时遇到如下异常：
-E/AndroidRuntime(29551): FATAL EXCEPTION: main
-E/AndroidRuntime(29551): java.lang.RuntimeException: Unable to instantiate application com.cuiwenjun.activity.MyApplication: 
+今天在安装程序时遇到如下异常：
+> E/AndroidRuntime(29551): FATAL EXCEPTION: main
+> E/AndroidRuntime(29551): java.lang.RuntimeException: Unable to instantiate application com.cuiwenjun.activity.MyApplication: 
 java.lang.ClassNotFoundException: com.cuiwenjun.activity.MyApplication
 E/AndroidRuntime(29551):  at android.app.LoadedApk.makeApplication(LoadedApk.java:482)
 E/AndroidRuntime(29551):   at android.app.ActivityThread.handleBindApplication(ActivityThread.java:3960)
