@@ -2,9 +2,10 @@
 layout: post
 ---
 
-今天在安装程序时遇到如下异常：
+    今天在安装程序时遇到如下异常：
 > E/AndroidRuntime(29551): FATAL EXCEPTION: main
-> E/AndroidRuntime(29551): java.lang.RuntimeException: Unable to instantiate application com.cuiwenjun.activity.MyApplication: 
+E/AndroidRuntime(29551): java.lang.RuntimeException: Unable to instantiate application 
+com.cuiwenjun.activity.MyApplication: 
 java.lang.ClassNotFoundException: com.cuiwenjun.activity.MyApplication
 E/AndroidRuntime(29551):  at android.app.LoadedApk.makeApplication(LoadedApk.java:482)
 E/AndroidRuntime(29551):   at android.app.ActivityThread.handleBindApplication(ActivityThread.java:3960)
@@ -26,6 +27,6 @@ E/AndroidRuntime(29551): 	at android.app.Instrumentation.newApplication(Instrume
 E/AndroidRuntime(29551): 	at android.app.LoadedApk.makeApplication(LoadedApk.java:477)
 E/AndroidRuntime(29551): 	... 11 more
 
-  在AndroidManifest.xml中的<application>节点处是以.MyApplication做为android:name的值的，但是其它的activity都是包名＋activity,
-将application也换成包名＋application后重新安装后没有问题，猜测是由于Android对AndroidManifest.xml有缓存机制，修改AndroidManifest.xml
-后才会重新加载
+    在AndroidManifest.xml中的<application>节点处是以.MyApplication做为android:name的值的，但是其它的activity都是包名＋activity,
+    将application也换成包名＋application后重新安装后没有问题，猜测是由于Android对AndroidManifest.xml有缓存机制，修改AndroidManifest.xml
+    后才会重新加载
