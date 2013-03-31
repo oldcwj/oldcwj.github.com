@@ -22,4 +22,5 @@ Learning
 
 oldcwj@gmail.com
 
-My app https://play.google.com/store/apps/details?id=com.cuiwenjun.applog&feature=search_result
+My app iAppClock
+<https://play.google.com/store/apps/details?id=com.cuiwenjun.applog&feature=search_result>
