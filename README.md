@@ -1,2 +1,1 @@
-##cuiwenjun.com
-This is my personal weblog.
+##http://clipboardpro.com
