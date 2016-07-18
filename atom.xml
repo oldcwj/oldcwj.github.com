@@ -3,21 +3,21 @@ layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-<title>What's on my mind: Cuiwenjun.com</title>
-<link href="http://cuiwenjun.com/atom.xml" rel="self"/>
-<link href="http://cuiwenjun.com/"/>
+<title>What's on my mind: ClipboardPro.com</title>
+<link href="http://clipboardpro.com/atom.xml" rel="self"/>
+<link href="http://clipboardpro.com/"/>
 <updated>{{ site.time | date_to_xmlschema }}</updated>
-<id>http://cuiwenjun.com/</id>
+<id>http://clipboardpro.com/</id>
 <author>
-<name>cuiwenjun</name>
+<name>clipboardpro</name>
 <email>oldcwj@gmail.com</email>
 </author>
 {% for post in site.posts limit:13 %}
 <entry>
 <title>{{ post.title }}</title>
-<link href="http://cuiwenjun.com{{ post.url }}"/>
+<link href="http://clipboardpro.com{{ post.url }}"/>
 <updated>{{ post.date | date_to_xmlschema }}</updated>
-<id>http://cuiwenjun.com{{ post.id }}</id>
+<id>http://clipboardpro.com{{ post.id }}</id>
 <content type="html">{{ post.content | xml_escape }}</content>
 </entry>
 {% endfor %}
