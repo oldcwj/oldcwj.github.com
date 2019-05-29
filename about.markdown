@@ -1,6 +1,6 @@
 ---
 layout: default
-title: ClipboardPro
+title: imZine
 permalink: /about/
 ---
 
