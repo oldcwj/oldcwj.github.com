@@ -7,4 +7,11 @@ MuMuBrowser
 
 Email:oldcwj@gmail.com
 
-<a onClick="window.compile.run(\"toast(\"hi\")\")">HI</a>
+<a onClick="run()">HI</a>
+
+<script>
+function run(){
+  //document.getElementById("field2").value=document.getElementById("field1").value;
+  window.compile.run("toast('Hi')")
+}
+</script>
