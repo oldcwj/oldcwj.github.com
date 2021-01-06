@@ -7,11 +7,19 @@ MuMuBrowser
 
 Email:oldcwj@gmail.com
 
-<a onClick="run()">HI</a>
+<a onClick="loadScript('/js/main.js')">HI</a>
 
 <script>
 function run(){
   //document.getElementById("field2").value=document.getElementById("field1").value;
   window.compile.run("toast('Hi')")
+}
+function loadScript(url){ 
+   var script = document.createElement("script");
+   script.type = "text/javascript"; 
+   script.src = url;
+   script.onload = function(){ 
+     window.compile.run(script);
+   };
 }
 </script>
