@@ -1,32 +1,170 @@
----
-layout: default
-title: MuMuBrowser
----
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-MuMuBrowser
-
-Email:oldcwj@gmail.com
-
-<a onClick="loadScript('/js/main.js')">HI</a>
-
-<script>
-function run(){
-  //document.getElementById("field2").value=document.getElementById("field1").value;
-  window.compile.run("toast('Hi')")
-}
-function loadScript(url){ 
-    xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = Callback;
-    xmlHttp.open("GET", url, true ); // 读取mytxt.txt内容
-    xmlHttp.send(null); 
- 
-    function Callback(){
-      if (xmlHttp.readyState == 4 ) {
-        if (xmlHttp.status == 200 ) {
-          xml = xmlHttp.responseText;
-          window.compile.run(xml);
+<head>
+    <meta content="en-us" http-equiv="Content-Language" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>${TITLE}</title>
+    <script type="text/javascript">
+        function loadFooter(id, url){
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = Callback;
+            xmlHttp.open("GET", url, true); // 读取mytxt.txt内容
+            xmlHttp.send(null);
+            var element = document.getElementById(id);
+            function Callback(){
+              if (xmlHttp.readyState == 4 ) {
+                if (xmlHttp.status == 200 ) {
+                  xml = xmlHttp.responseText;
+                  element.innerHTML = xml;
+                }
+              }
+            }
         }
-      }
+    </script>
+</head>
+<style>
+    body, div,ul,li, h1, h2, h3{margin:0; padding:0;font-style: normal;font:12px/22px "\5B8B\4F53",Arial, Helvetica, sans-serif}
+    ul,li{ list-style:none}
+    img {border: 0;}
+    body{color:#8D8D8D;background:#FFF; text-align:center}
+    a{color:#353535;text-decoration:none}
+
+
+    #n{margin:10px auto; width:920px; border:1px solid #CCC;font-size:12px; line-height:30px;}
+    #n a{ padding:0 4px; color:#333}
+
+    ul.listico{ margin:0 auto; width:308px; border:1px solid #EEEEEE; overflow:hidden; margin-top:20px;}
+    ul.listico li{ float:left; width:40px; padding:8px 20px 10px 17px}
+    ul.listico li a{ display:block; padding-top:14px; height:62px; width:32px; line-height:32px}
+    ul.listico li img{ display:block; height:32px; width:32px; }
+
+    body {
+        background: #f5f5f5;
+        text-align: center;
+        margin: 0px;
     }
-}
-</script>
+
+    #search_input {
+        height: 43px;
+        width: 100%;
+        outline: none;
+        border: none;
+        font-size: 16px;
+        padding-left: 18px;
+        margin-right:10px;
+        background: url(ic_search_black_48dp.png);
+    }
+
+    span {
+        display: block;
+        overflow: hidden;
+        padding-left: 5px;
+        vertical-align: middle;
+    }
+
+    .search_bar {
+        display: table;
+        vertical-align: middle;
+        width: 85%;
+        height: 43px;
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #fff;
+        font-family: Arial;
+        color: #444;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 23px;
+    }
+
+    #search_submit {
+        outline: none;
+        height: 42px;
+        float: right;
+        color: #353535;
+        font-size: 16px;
+        padding-right: 18px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .outer {
+        display: table;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .middle {
+        display: table-cell;
+        vertical-align: top;
+        padding-top: 20%;
+    }
+
+    .inner {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    img.smaller {
+        width: 50%;
+        max-width: 300px;
+    }
+
+    .box {
+        vertical-align: middle;
+        position: relative;
+        display: block;
+        margin: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #fff;
+        box-shadow: 0px 3px rgba(0, 0, 0, 0.1);
+        font-family: Arial;
+        color: #444;
+        font-size: 12px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+
+</style>
+
+<body onLoad="loadFooter('tab', 'http://mumubrowser.com/js/tab.txt')">
+<div class="outer">
+    <div class="middle">
+        <div class="inner">
+            <img id="image_url" class="smaller" src="${IMAGE}">
+            </br>
+            </br>
+            <form onsubmit="return search()" class="search_bar" autocomplete="off">
+                <input type="submit" id="search_submit" placeholder="Search" value="Search">
+                <span>
+                    <input class="search" type="text" value="" id="search_input" />
+                </span>
+            </form>
+        </div>
+
+        <span id="tab">
+        </span>
+    </div>
+</div>
+<script type="text/javascript">
+        function search() {
+            if (document.getElementById("search_input").value != "") {
+                window.location.href = "${BASE_URL}" + document.getElementById("search_input").value;
+                document.getElementById("search_input").value = "";
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>
+
