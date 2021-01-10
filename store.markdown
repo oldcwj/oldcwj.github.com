@@ -1,6 +1,7 @@
 ---
 layout: default
 title: MuMuBrowser
+permalink: /store/
 ---
 
 MuMuBrowser
