@@ -7,43 +7,19 @@
             </li>
             <li>
                 <a href="http://www.sogou.com" class="ico2">
-                    <img id="img2" src="${IMAGE}" />
+                    <img id="img2" src="http://mumubrowser.com/images/sogou.jpg" />
                     Sogou
                 </a>
             </li>
             <li>
                 <a href="http://www.google.com" class="ico3">
-                    <img id="img3" src="${IMAGE}" />
+                    <img id="img3" src="http://mumubrowser.com/images/google.jpeg" />
                     Google
                 </a>
             </li>
             <li>
-                <a href="#"  class="ico4">
-                    <img id="img4" src="${IMAGE}" />
-                    游戏
-                </a>
-            </li>
-            <li>
-                <a href="#"  class="ico5">
-                    <img id="img5" src="${IMAGE}" />
-                    旅行
-                </a>
-            </li>
-            <li>
-                <a href="#"  class="ico6">
-                    <img id="img6" src="${IMAGE}" />
-                    电影票
-                </a>
-            </li>
-            <li>
-                <a href="#"  class="ico7">
-                    <img id="img7" src="${IMAGE}" />
-                    理财
-                </a>
-            </li>
-            <li>
                 <a href="https://mumubrowser.com/store/" class="ico8">
-                    <img id="img8" src="${IMAGE}" />
-                    Tools</a>
+                    <img id="img8" src="http://mumubrowser.com/images/labs.jpg" />
+                    Labs</a>
             </li>
         </ul>
