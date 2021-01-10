@@ -7,7 +7,7 @@ permalink: /about/
 <ul class="listico">
             <li>
                 <a href="http://www.baidu.com" class="ico1">
-                    <img id="img1" src="${IMAGE}" />
+                    <img id="img1" src="/image/baidu.png" />
                     Baidu
                 </a>
             </li>
