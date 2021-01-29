@@ -7,11 +7,9 @@ MuMuBrowser
 
 Email:oldcwj@gmail.com
 
-<a onClick="loadScript('/js/main.js')">Math</a>
+<button onClick="loadScript('/js/main.js')">Math</button>
 
-<a onClick="loadScript('/js/apptools.js')">App Tools</a>
-
-<a onClick="loadScript('/js/lockscreen.js')">Math</a>
+<button onClick="loadScript('/js/apptools.js')">App Tools</button>
 
 <script>
 function run(){
