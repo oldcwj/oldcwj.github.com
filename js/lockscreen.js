@@ -1,0 +1,1 @@
+KeyCode("KEYCODE_POWER");
