@@ -1,158 +1,76 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coobbi Apps | Google Play Developer</title>
+    <meta
+      name="description"
+      content="Official Coobbi website showcasing apps published on Google Play with direct download links."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <div class="topbar">
+          <p class="badge">coobbi.com</p>
+          <button id="lang-toggle" class="btn ghost" type="button">中文</button>
+        </div>
+        <h1 data-i18n="heroTitle">Build better daily experiences with Coobbi apps</h1>
+        <p class="subtitle" data-i18n="heroSubtitle">
+          This is the official Coobbi website. Browse apps published on Google Play and open each listing directly.
+        </p>
+        <div class="hero-actions">
+          <a
+            class="btn primary"
+            href="https://play.google.com/store/apps/dev?id=4826052335238518015"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="heroPrimaryCta"
+            >Visit Google Play Developer Page</a
+          >
+          <a class="btn ghost" href="#apps" data-i18n="heroSecondaryCta">View Apps</a>
+        </div>
+      </div>
+    </header>
 
-<head>
-    <meta content="en-us" http-equiv="Content-Language" />
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>${TITLE}</title>
-    <script type="text/javascript">
-        function loadFooter(id, url){
-            xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange = Callback;
-            xmlHttp.open("GET", url, true); // 读取mytxt.txt内容
-            xmlHttp.send(null);
-            var element = document.getElementById(id);
-            function Callback(){
-              if (xmlHttp.readyState == 4 ) {
-                if (xmlHttp.status == 200 ) {
-                  xml = xmlHttp.responseText;
-                  element.innerHTML = xml;
-                }
-              }
-            }
-        }
-    </script>
-</head>
-<style>
-    body, div,ul,li, h1, h2, h3{margin:0; padding:0;font-style: normal;font:12px/22px "\5B8B\4F53",Arial, Helvetica, sans-serif}
-    ul,li{ list-style:none}
-    img {border: 0;}
-    body{color:#8D8D8D;background:#FFF; text-align:center}
-    a{color:#353535;text-decoration:none}
+    <main>
+      <section id="apps" class="apps-section container">
+        <div class="section-title">
+          <h2 data-i18n="appsTitle">Apps</h2>
+          <p data-i18n="appsSubtitle">The list below is synced from Google Play developer data.</p>
+        </div>
+        <div id="apps-grid" class="apps-grid" aria-live="polite"></div>
+      </section>
 
+      <section class="about container">
+        <h2 data-i18n="aboutTitle">About Coobbi</h2>
+        <p data-i18n="aboutBody">
+          Coobbi focuses on practical Android tools. This site is the official landing page for product updates,
+          branding, and download guidance.
+        </p>
+      </section>
+    </main>
 
-    #n{margin:10px auto; width:920px; border:1px solid #CCC;font-size:12px; line-height:30px;}
-    #n a{ padding:0 4px; color:#333}
+    <footer>
+      <div class="container footer-wrap">
+        <p>© <span id="year"></span> Coobbi. All rights reserved.</p>
+        <a
+          href="https://play.google.com/store/apps/dev?id=4826052335238518015"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Google Play</a
+        >
+      </div>
+    </footer>
 
-    ul.listico{ margin:0 auto; width:308px; border:1px solid #EEEEEE; overflow:hidden; margin-top:20px;}
-    ul.listico li{ float:left; width:40px; padding:8px 20px 10px 17px}
-    ul.listico li a{ display:block; padding-top:14px; height:62px; width:32px; line-height:32px}
-    ul.listico li img{ display:block; height:32px; width:32px; }
-
-    body {
-        background: #f5f5f5;
-        text-align: center;
-        margin: 0px;
-    }
-
-    #search_input {
-        height: 43px;
-        width: 100%;
-        outline: none;
-        border: none;
-        font-size: 16px;
-        padding-left: 18px;
-        margin-right:10px;
-        background: url(ic_search_black_48dp.png);
-    }
-
-    span {
-        display: block;
-        overflow: hidden;
-        padding-left: 5px;
-        vertical-align: middle;
-    }
-
-    .search_bar {
-        display: table;
-        vertical-align: middle;
-        width: 85%;
-        height: 43px;
-        max-width: 500px;
-        margin: 0 auto;
-        background-color: #fff;
-        font-family: Arial;
-        color: #444;
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
-        border-radius: 23px;
-    }
-
-    #search_submit {
-        outline: none;
-        height: 42px;
-        float: right;
-        color: #353535;
-        font-size: 16px;
-        padding-right: 18px;
-        border: none;
-        background-color: transparent;
-    }
-
-    .outer {
-        display: table;
-        position: absolute;
-        height: 100%;
-        width: 100%;
-    }
-
-    .middle {
-        display: table-cell;
-        vertical-align: top;
-        padding-top: 20%;
-    }
-
-    .inner {
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-    }
-
-    img.smaller {
-        width: 50%;
-        max-width: 300px;
-    }
-
-    .box {
-        vertical-align: middle;
-        position: relative;
-        display: block;
-        margin: 10px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        background-color: #fff;
-        box-shadow: 0px 3px rgba(0, 0, 0, 0.1);
-        font-family: Arial;
-        color: #444;
-        font-size: 12px;
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
-        border-radius: 2px;
-    }
-
-
-</style>
-
-<body onLoad="loadFooter('tab', 'https://mumubrowser.com/js/tab.txt')">
-<div class="outer">
-    <div class="middle">
-        <span id="tab">
-        </span>
-    </div>
-</div>
-<script type="text/javascript">
-        function search() {
-            if (document.getElementById("search_input").value != "") {
-                window.location.href = "${BASE_URL}" + document.getElementById("search_input").value;
-                document.getElementById("search_input").value = "";
-            }
-            return false;
-        }
-    </script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
-

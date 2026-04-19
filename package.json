@@ -1,0 +1,11 @@
+{
+  "name": "coobbi-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "fetch:play": "node scripts/fetch-play-apps.mjs"
+  },
+  "dependencies": {
+    "google-play-scraper": "^10.1.0"
+  }
+}

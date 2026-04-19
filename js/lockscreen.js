@@ -1,1 +1,0 @@
-KeyCode("KEYCODE_POWER");

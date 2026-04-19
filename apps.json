@@ -1,0 +1,35 @@
+[
+  {
+    "nameEn": "Jre4Android - Java Runtime & J2ME",
+    "nameZh": "Jre4Android - Java 运行时与 J2ME",
+    "categoryEn": "Tools",
+    "categoryZh": "工具",
+    "descriptionEn": "Run Java JAR/class, J2ME apps, and Swing GUIs on Android.",
+    "descriptionZh": "在 Android 上运行 Java JAR/class、J2ME 应用和 Swing 图形界面。",
+    "icon": "https://dummyimage.com/120x120/2f6bff/ffffff&text=JRE",
+    "url": "https://play.google.com/store/apps/details?id=com.coobbi.jre",
+    "updatedAt": "2026-04-19"
+  },
+  {
+    "nameEn": "Jre4Android Pro - Java Runtime",
+    "nameZh": "Jre4Android Pro - Java 运行时",
+    "categoryEn": "Tools · Pro",
+    "categoryZh": "工具 · 专业版",
+    "descriptionEn": "Pro edition for advanced Java runtime performance and features.",
+    "descriptionZh": "Pro 版本，适合需要更高性能和高级功能的 Java 运行场景。",
+    "icon": "https://dummyimage.com/120x120/6b4dff/ffffff&text=PRO",
+    "url": "https://play.google.com/store/apps/details?id=com.coobbi.jre.pro",
+    "updatedAt": "2026-04-19"
+  },
+  {
+    "nameEn": "App Firewall: Network Monitor",
+    "nameZh": "App Firewall：网络监控",
+    "categoryEn": "Privacy & Network",
+    "categoryZh": "网络与隐私",
+    "descriptionEn": "No-root firewall and network monitor for app-level connection control.",
+    "descriptionZh": "无 Root 防火墙与网络监控工具，可管理每个应用的联网行为。",
+    "icon": "https://dummyimage.com/120x120/12b886/ffffff&text=FW",
+    "url": "https://play.google.com/store/apps/details?id=com.coobbi.firewall",
+    "updatedAt": "2026-04-19"
+  }
+]
