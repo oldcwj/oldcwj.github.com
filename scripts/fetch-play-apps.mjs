@@ -1,7 +1,12 @@
 import fs from 'node:fs/promises';
 import gplay from 'google-play-scraper';
 
-const developerId = '4826052335238518015';
+const developerId = process.env.PLAY_DEVELOPER_ID || '4826052335238518015';
+const maxApps = 200;
+const countries = (process.env.PLAY_COUNTRIES || 'us,hk,tw,jp,kr')
+  .split(',')
+  .map((country) => country.trim().toLowerCase())
+  .filter(Boolean);
 const outputPath = new URL('../apps.json', import.meta.url);
 
 function mapByAppId(list) {
@@ -22,20 +27,52 @@ function normalizeApp(enApp, zhApp) {
   };
 }
 
+async function fetchByLangAndCountries(lang) {
+  const requests = countries.map((country) =>
+    gplay.developer({
+      devId: developerId,
+      lang,
+      country,
+      num: maxApps,
+      fullDetail: true
+    })
+  );
+
+  const results = await Promise.allSettled(requests);
+  const merged = [];
+
+  results.forEach((result, index) => {
+    if (result.status === 'fulfilled') {
+      merged.push(...result.value);
+      return;
+    }
+
+    console.warn(`Fetch failed for lang=${lang}, country=${countries[index]}:`, result.reason?.message || result.reason);
+  });
+
+  return merged;
+}
+
 async function main() {
-  const [appsEn, appsZh] = await Promise.all([
-    gplay.developer({ devId: developerId, lang: 'en', country: 'us' }),
-    gplay.developer({ devId: developerId, lang: 'zh_CN', country: 'us' })
-  ]);
+  const [appsEn, appsZh] = await Promise.all([fetchByLangAndCountries('en'), fetchByLangAndCountries('zh_CN')]);
 
   const enMap = mapByAppId(appsEn);
   const zhMap = mapByAppId(appsZh);
 
   const appIds = new Set([...enMap.keys(), ...zhMap.keys()]);
-  const normalized = [...appIds].map((appId) => normalizeApp(enMap.get(appId), zhMap.get(appId)));
+  const normalized = [...appIds]
+    .map((appId) => normalizeApp(enMap.get(appId), zhMap.get(appId)))
+    .sort((a, b) => a.nameEn.localeCompare(b.nameEn));
 
   await fs.writeFile(outputPath, `${JSON.stringify(normalized, null, 2)}\n`, 'utf8');
-  console.log(`Updated apps.json with ${normalized.length} apps from developer ${developerId}.`);
+  console.log(
+    `Updated apps.json with ${normalized.length} apps from developer ${developerId} (countries: ${countries.join(', ')}).`
+  );
+  if (normalized.length <= 3) {
+    console.warn(
+      `Only ${normalized.length} app(s) were returned. If this is unexpected, verify PLAY_DEVELOPER_ID, PLAY_COUNTRIES, and app visibility on Google Play.`
+    );
+  }
 }
 
 main().catch((error) => {
