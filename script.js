@@ -67,8 +67,9 @@ function appText(app, key) {
 
 function truncateText(text, maxLength = 100) {
   if (typeof text !== 'string') return '';
-  if (text.length <= maxLength) return text;
-  return `${text.slice(0, maxLength)}...`;
+  const normalized = text.replace(/\s+/g, ' ').trim();
+  if (normalized.length <= maxLength) return normalized;
+  return normalized.slice(0, maxLength);
 }
 
 function renderApps(apps) {
