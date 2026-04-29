@@ -212,6 +212,15 @@ h1 {
   font-size: 0.9rem;
 }
 
+
+.card-description {
+  min-height: 5.4em;
+}
+
+.card .btn {
+  margin-top: auto;
+}
+
 footer {
   margin-top: 1rem;
   padding: 0.3rem 0 1.7rem;

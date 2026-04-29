@@ -65,13 +65,6 @@ function appText(app, key) {
   return app[`${key}En`] || app[key] || '';
 }
 
-function truncateText(text, maxLength = 100) {
-  if (typeof text !== 'string') return '';
-  const normalized = text.replace(/\s+/g, ' ').trim();
-  if (normalized.length <= maxLength) return normalized;
-  return normalized.slice(0, maxLength);
-}
-
 function renderApps(apps) {
   if (!Array.isArray(apps) || apps.length === 0) {
     appsGrid.innerHTML = `<p>${i18n[currentLang].emptyApps}</p>`;
@@ -82,7 +75,7 @@ function renderApps(apps) {
     .map((app) => {
       const name = appText(app, 'name');
       const category = appText(app, 'category') || i18n[currentLang].fallbackCategory;
-      const description = truncateText(appText(app, 'description') || i18n[currentLang].fallbackDescription);
+      const description = appText(app, 'description') || i18n[currentLang].fallbackDescription;
       const updated = app.updatedAt ? ` · ${app.updatedAt}` : '';
 
       return `
@@ -94,7 +87,7 @@ function renderApps(apps) {
               <p>${category}${updated}</p>
             </div>
           </div>
-          <p>${description}</p>
+          <p class="card-description">${description}</p>
           <a class="btn primary" href="${app.url}" target="_blank" rel="noopener noreferrer">${i18n[currentLang].goPlay}</a>
         </article>
       `;
