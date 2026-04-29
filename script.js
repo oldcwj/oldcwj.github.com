@@ -65,6 +65,12 @@ function appText(app, key) {
   return app[`${key}En`] || app[key] || '';
 }
 
+function truncateText(text, maxLength = 100) {
+  if (typeof text !== 'string') return '';
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength)}...`;
+}
+
 function renderApps(apps) {
   if (!Array.isArray(apps) || apps.length === 0) {
     appsGrid.innerHTML = `<p>${i18n[currentLang].emptyApps}</p>`;
@@ -75,7 +81,7 @@ function renderApps(apps) {
     .map((app) => {
       const name = appText(app, 'name');
       const category = appText(app, 'category') || i18n[currentLang].fallbackCategory;
-      const description = appText(app, 'description') || i18n[currentLang].fallbackDescription;
+      const description = truncateText(appText(app, 'description') || i18n[currentLang].fallbackDescription);
       const updated = app.updatedAt ? ` · ${app.updatedAt}` : '';
 
       return `
