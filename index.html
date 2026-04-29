@@ -17,32 +17,48 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="bg-glow" aria-hidden="true"></div>
+
     <header class="hero">
-      <div class="container">
+      <div class="container hero-shell">
         <div class="topbar">
           <p class="badge">coobbi.com</p>
           <button id="lang-toggle" class="btn ghost" type="button">中文</button>
         </div>
-        <h1 data-i18n="heroTitle">Build better daily experiences with Coobbi apps</h1>
-        <p class="subtitle" data-i18n="heroSubtitle">
-          This is the official Coobbi website. Browse apps published on Google Play and open each listing directly.
-        </p>
-        <div class="hero-actions">
-          <a
-            class="btn primary"
-            href="https://play.google.com/store/apps/dev?id=4826052335238518015"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-i18n="heroPrimaryCta"
-            >Visit Google Play Developer Page</a
-          >
-          <a class="btn ghost" href="#apps" data-i18n="heroSecondaryCta">View Apps</a>
+
+        <div class="hero-grid">
+          <div>
+            <h1 data-i18n="heroTitle">Build better daily experiences with Coobbi apps</h1>
+            <p class="subtitle" data-i18n="heroSubtitle">
+              This is the official Coobbi website. Browse apps published on Google Play and open each listing directly.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn primary"
+                href="https://play.google.com/store/apps/dev?id=4826052335238518015"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="heroPrimaryCta"
+                >Visit Google Play Developer Page</a
+              >
+              <a class="btn ghost" href="#apps" data-i18n="heroSecondaryCta">View Apps</a>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Highlights">
+            <p class="hero-card-title">Highlights</p>
+            <ul>
+              <li>🎯 Practical Android tools</li>
+              <li>🌐 Bilingual website support</li>
+              <li>🔄 Data synced from Google Play</li>
+            </ul>
+          </aside>
         </div>
       </div>
     </header>
 
-    <main>
-      <section id="apps" class="apps-section container">
+    <main class="container main-stack">
+      <section id="apps" class="apps-section">
         <div class="section-title">
           <h2 data-i18n="appsTitle">Apps</h2>
           <p data-i18n="appsSubtitle">The list below is synced from Google Play developer data.</p>
@@ -50,7 +66,7 @@
         <div id="apps-grid" class="apps-grid" aria-live="polite"></div>
       </section>
 
-      <section class="about container">
+      <section class="about">
         <h2 data-i18n="aboutTitle">About Coobbi</h2>
         <p data-i18n="aboutBody">
           Coobbi focuses on practical Android tools. This site is the official landing page for product updates,
@@ -62,10 +78,7 @@
     <footer>
       <div class="container footer-wrap">
         <p>© <span id="year"></span> Coobbi. All rights reserved.</p>
-        <a
-          href="https://play.google.com/store/apps/dev?id=4826052335238518015"
-          target="_blank"
-          rel="noopener noreferrer"
+        <a href="https://play.google.com/store/apps/dev?id=4826052335238518015" target="_blank" rel="noopener noreferrer"
           >Google Play</a
         >
       </div>

@@ -41,9 +41,6 @@ const i18n = {
 
 let currentLang = localStorage.getItem('lang') || 'en';
 let appsData = [];
-const fallbackIcon = `data:image/svg+xml;utf8,${encodeURIComponent(
-  '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96"><rect width="100%" height="100%" rx="20" fill="#eef2ff"/><text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="26" fill="#4f46e5">APP</text></svg>'
-)}`;
 
 yearEl.textContent = new Date().getFullYear();
 
@@ -84,11 +81,7 @@ function renderApps(apps) {
       return `
         <article class="card">
           <div class="card-header">
-            <img
-              src="${app.icon || ''}"
-              alt="${name} icon"
-              loading="lazy"
-            />
+            <img src="${app.icon}" alt="${name} icon" loading="lazy" />
             <div>
               <h3>${name}</h3>
               <p>${category}${updated}</p>
@@ -100,18 +93,6 @@ function renderApps(apps) {
       `;
     })
     .join('');
-
-  appsGrid.querySelectorAll('img').forEach((img) => {
-    img.addEventListener(
-      'error',
-      () => {
-        if (img.src !== fallbackIcon) {
-          img.src = fallbackIcon;
-        }
-      },
-      { once: true }
-    );
-  });
 }
 
 async function loadApps() {

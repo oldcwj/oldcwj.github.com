@@ -28,7 +28,7 @@
 同步逻辑：
 1. 读取开发者 ID：`4826052335238518015`
 2. 分别拉取英文与中文应用列表
-3. 默认跨多个地区（`us,hk,tw,jp,kr`）拉取并合并去重，减少因地区可见性导致的漏应用
+3. 合并后写入 `apps.json`
 4. 若有变化，自动提交到仓库
 
 ## 本地手动同步
@@ -39,11 +39,6 @@ npm run fetch:play
 ```
 
 执行后会自动更新 `apps.json`。
-
-可选环境变量（用于覆盖默认值）：
-
-- `PLAY_DEVELOPER_ID`：开发者 ID
-- `PLAY_COUNTRIES`：地区列表（逗号分隔），例如：`us,hk,tw,jp,kr`
 
 ## GitHub Pages + 域名绑定步骤
 
@@ -61,3 +56,44 @@ npm run fetch:play
 4. 在 GitHub Pages 设置里填写 Custom domain：`coobbi.com`。
 5. 勾选“Enforce HTTPS”。
 6. 等待 DNS 生效后，访问 `coobbi.com` 即可打开 GitHub 上的网站。
+
+## 本地预览与截图
+
+```bash
+# 启动本地预览（默认 http://localhost:4173）
+npm run preview
+
+# 生成桌面端首页截图（默认 1440x1080）
+npm run screenshot
+
+# 生成移动端首页截图（390x844）
+npm run screenshot:mobile
+```
+
+可选环境变量：
+
+- `PORT`：预览服务端口（默认 `4173`）
+- `SCREENSHOT_PATH`：截图输出路径
+- `SCREENSHOT_WIDTH` / `SCREENSHOT_HEIGHT`：截图尺寸
+- `SCREENSHOT_URL_PATH`：要截图的站内路径（默认 `/`）
+
+
+备注：
+- 若本机安装了 `playwright` 依赖，截图脚本会优先使用 Playwright Chromium。
+- 若未安装 Playwright，则自动回退到系统浏览器命令：`chromium` / `chromium-browser` / `google-chrome`。
+
+## GitHub Actions 自动截图（方案B）
+
+仓库新增了 `Capture Site Screenshots` 工作流（`.github/workflows/capture-screenshots.yml`）：
+
+- 支持在 Actions 页面手动触发（`workflow_dispatch`）
+- 当首页相关文件变更并推送到 `main` 时自动触发
+- 运行后会上传两个产物：
+  - `screenshot-home.png`
+  - `screenshot-mobile.png`
+
+使用方式：
+1. 打开 GitHub 仓库 `Actions`
+2. 选择 **Capture Site Screenshots**
+3. 点击 **Run workflow**
+4. 任务完成后在 Artifacts 中下载 `site-screenshots`
