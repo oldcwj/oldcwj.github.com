@@ -212,13 +212,28 @@ h1 {
   font-size: 0.9rem;
 }
 
-
-.card-description {
-  min-height: 5.4em;
+.card-header > div {
+  min-width: 0;
 }
 
-.card .btn {
+.card-header > div p {
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+}
+
+.card-description {
+  min-height: 2.6em;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-cta {
   margin-top: auto;
+  width: 100%;
+  justify-content: center;
 }
 
 footer {
