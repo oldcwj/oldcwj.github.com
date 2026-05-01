@@ -103,7 +103,7 @@ function renderGroupSection(groupLabel, apps) {
   return `
     <section class="app-group">
       <h3 class="app-group-title">${groupLabel}</h3>
-      <div class="apps-grid">
+      <div class="group-row">
         ${apps
           .map((app) => {
             const name = appText(app, 'name');
