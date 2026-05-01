@@ -65,7 +65,7 @@ function appText(app, key) {
   return app[`${key}En`] || app[key] || '';
 }
 
-function toShortText(raw, maxLength = 88) {
+function toShortText(raw, maxLength = 60) {
   const text = String(raw || '')
     .replace(/<br\s*\/?>/gi, ' ')
     .replace(/<[^>]*>/g, ' ')
@@ -73,8 +73,11 @@ function toShortText(raw, maxLength = 88) {
     .trim();
 
   if (!text) return '';
-  if (text.length <= maxLength) return text;
-  return `${text.slice(0, maxLength).trimEnd()}…`;
+
+  const firstSentence = text.split(/(?<=[.!?。！？])\s+/)[0] || text;
+  const shortText = firstSentence.length > maxLength ? firstSentence.slice(0, maxLength) : firstSentence;
+
+  return `${shortText.trimEnd()}${firstSentence.length > maxLength ? '…' : ''}`;
 }
 
 function renderApps(apps) {
