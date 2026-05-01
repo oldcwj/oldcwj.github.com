@@ -11,6 +11,10 @@ const i18n = {
     heroSecondaryCta: 'View Apps',
     appsTitle: 'Apps',
     appsSubtitle: 'The list below is synced from Google Play developer data.',
+    groupJar: 'Java & JAR Apps',
+    groupMinecraft: 'Minecraft Apps',
+    groupFileTools: 'File Utility Apps',
+    groupOther: 'Other Apps',
     aboutTitle: 'About Coobbi',
     aboutBody:
       'Coobbi focuses on practical Android tools. This site is the official landing page for product updates, branding, and download guidance.',
@@ -28,6 +32,10 @@ const i18n = {
     heroSecondaryCta: '查看应用',
     appsTitle: '应用列表',
     appsSubtitle: '以下应用由 Google Play 开发者数据自动同步生成。',
+    groupJar: 'Java / JAR 应用',
+    groupMinecraft: 'Minecraft 应用',
+    groupFileTools: '文件工具应用',
+    groupOther: '其他应用',
     aboutTitle: '关于 Coobbi',
     aboutBody: 'Coobbi 专注于实用 Android 工具。本网站用于统一介绍产品、品牌信息和下载入口。',
     fallbackCategory: 'Android 应用',
@@ -80,33 +88,65 @@ function toShortText(raw, maxLength = 60) {
   return `${shortText.trimEnd()}${firstSentence.length > maxLength ? '…' : ''}`;
 }
 
+function getAppGroupKey(app) {
+  const name = (app.nameEn || app.name || '').toLowerCase();
+  if (name.includes('jre4android') || name.includes('jar file opener')) return 'groupJar';
+  if (name.includes('minecraft server') || name.includes('minecraft rcon admin')) return 'groupMinecraft';
+  if (name.includes('obb file opener') || name.includes('dat file opener') || name.includes('so file viewer')) {
+    return 'groupFileTools';
+  }
+  return 'groupOther';
+}
+
+function renderGroupSection(groupLabel, apps) {
+  if (!apps.length) return '';
+  return `
+    <section class="app-group">
+      <h3 class="app-group-title">${groupLabel}</h3>
+      <div class="apps-grid">
+        ${apps
+          .map((app) => {
+            const name = appText(app, 'name');
+            const category = appText(app, 'category') || i18n[currentLang].fallbackCategory;
+            const description = toShortText(appText(app, 'description') || i18n[currentLang].fallbackDescription);
+            const updated = app.updatedAt ? ` · ${app.updatedAt}` : '';
+
+            return `
+              <article class="card">
+                <div class="card-header">
+                  <img src="${app.icon}" alt="${name} icon" loading="lazy" />
+                  <div>
+                    <h3>${name}</h3>
+                    <p>${category}${updated}</p>
+                  </div>
+                </div>
+                <p class="card-description">${description}</p>
+                <a class="btn primary card-cta" href="${app.url}" target="_blank" rel="noopener noreferrer">${i18n[currentLang].goPlay}</a>
+              </article>
+            `;
+          })
+          .join('')}
+      </div>
+    </section>
+  `;
+}
+
 function renderApps(apps) {
   if (!Array.isArray(apps) || apps.length === 0) {
     appsGrid.innerHTML = `<p>${i18n[currentLang].emptyApps}</p>`;
     return;
   }
 
-  appsGrid.innerHTML = apps
-    .map((app) => {
-      const name = appText(app, 'name');
-      const category = appText(app, 'category') || i18n[currentLang].fallbackCategory;
-      const description = toShortText(appText(app, 'description') || i18n[currentLang].fallbackDescription);
-      const updated = app.updatedAt ? ` · ${app.updatedAt}` : '';
+  const groupedApps = {
+    groupJar: [],
+    groupMinecraft: [],
+    groupFileTools: [],
+    groupOther: []
+  };
+  apps.forEach((app) => groupedApps[getAppGroupKey(app)].push(app));
 
-      return `
-        <article class="card">
-          <div class="card-header">
-            <img src="${app.icon}" alt="${name} icon" loading="lazy" />
-            <div>
-              <h3>${name}</h3>
-              <p>${category}${updated}</p>
-            </div>
-          </div>
-          <p class="card-description">${description}</p>
-          <a class="btn primary card-cta" href="${app.url}" target="_blank" rel="noopener noreferrer">${i18n[currentLang].goPlay}</a>
-        </article>
-      `;
-    })
+  appsGrid.innerHTML = ['groupJar', 'groupMinecraft', 'groupFileTools', 'groupOther']
+    .map((groupKey) => renderGroupSection(i18n[currentLang][groupKey], groupedApps[groupKey]))
     .join('');
 }
 
