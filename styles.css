@@ -194,13 +194,21 @@ h1 {
   gap: 0.85rem;
   overflow-x: auto;
   padding-bottom: 0.15rem;
+  padding-inline: 0.05rem;
   scroll-snap-type: x proximity;
 }
 
 .group-row .card {
-  width: min(360px, 84vw);
-  min-width: min(360px, 84vw);
+  flex: 0 0 clamp(260px, 31.5%, 360px);
+  min-width: 260px;
   scroll-snap-align: start;
+}
+
+@media (max-width: 900px) {
+  .group-row .card {
+    flex-basis: min(360px, 84vw);
+    min-width: min(360px, 84vw);
+  }
 }
 
 .card {
