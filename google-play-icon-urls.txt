@@ -1,0 +1,12 @@
+jre4android.svg: https://play-lh.googleusercontent.com/7G6suBH0jJW0w0My0Kz-w7r__lXyzFOZXjpcWuLzm_v6HGkOK6ANQ7WHyKcYbbwRGXwHaVXRSFDYhScz_e6P%3Dw240-h480
+jre4android-pro.svg: https://play-lh.googleusercontent.com/_fiJ1LPrLD4dYhRjZb22wKCxD8TAvx1TyFAtAWjUSNu8JyATziW3Lm_j__sRT27z5-AVIjhh3C4fzHY4xMGs7A%3Dw240-h480
+jar-file-opener.svg: https://play-lh.googleusercontent.com/-0kdi2ymrW7F6LaO7tSW1ck2ewH4BqIFSuFgCj2LTLnJYo9VJ5tdQCe7wCXSTh7jOxhvJppPAjE4sgEFq-Ck%3Dw240-h480
+dat-file-opener.svg: https://play-lh.googleusercontent.com/WY5wuF7ifCMJT880AidYJLaja1FjMggVz8rUMPa0kbDBrFWNM1vwQXvzp_66tDgbrIt3UyOMWtfTpNLnXwYZDDM%3Dw240-h480
+obb-file-opener.svg: https://play-lh.googleusercontent.com/IcBy-329SHMdYmrooo80zhnmNg04a8NX3mA2oFqHmyxQ1q_VNKldmJmZAfVHFr2mPjsN84QutufiqVTg3nhv%3Dw240-h480
+so-file-viewer.svg: https://play-lh.googleusercontent.com/GVO8WSdf__iEb0crxCyG2zo7V0eNSi-DYjxzSBTvNcGMqv5SWd0lDgqtu_YXJT0iE1qLeryrC-jD315k9ejPOQ%3Dw240-h480
+network-firewall.svg: https://play-lh.googleusercontent.com/MY9KPInJy1AUeQncyUaedK7j6aRmd8B5m_PaYIjI6fdZuWzq7O8c4jDbqXMvq4xOIaWEr2UASjMFuCh9nSv6kjk%3Dw240-h480
+mcpaper.svg: https://play-lh.googleusercontent.com/_JWOG0g29JD7GyUDfbu5odYjD6hKH0hMXDxrvVG08iR7DWFxZVN4C1xpfJq8JFy6HsVfnI3-gimj9z-oOI4Wd0k%3Dw240-h480
+minecraft-rcon-admin.svg: https://play-lh.googleusercontent.com/_MrWtZaQfKsWYmIvIsq8u7Xz3YJlQbJbovKqAY2QI_ucmrKQEBs7-9Xhq4iBk0_rxm-l1PyPF-2nL4GQjvn21w%3Dw240-h480
+bluetooth-keyboard-mouse.svg: https://play-lh.googleusercontent.com/7xor8GWku470Sb-CWuytkbcVgNsEOJDvnaKUNsDDchJV6XwI3qnxhBCGE8GjxgTlfBZtdOR1109lpVKxuo0utg%3Dw240-h480
+obb-file-opener.png: https://play-lh.googleusercontent.com/IcBy-329SHMdYmrooo80zhnmNg04a8NX3mA2oFqHmyxQ1q_VNKldmJmZAfVHFr2mPjsN84QutufiqVTg3nhv%3Dw240-h480
+so-file-viewer.png: https://play-lh.googleusercontent.com/GVO8WSdf__iEb0crxCyG2zo7V0eNSi-DYjxzSBTvNcGMqv5SWd0lDgqtu_YXJT0iE1qLeryrC-jD315k9ejPOQ%3Dw240-h480
