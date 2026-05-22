@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="72" x2="440" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#69d76d"/>
+      <stop offset="1" stop-color="#1e7f45"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="104" fill="url(#bg)"/>
+  <path d="M142 74h178l60 60v286H142z" fill="#f8fff8"/>
+  <path d="M320 74v60h60z" fill="#c7efc8"/>
+  <rect x="178" y="182" width="156" height="18" rx="9" fill="#48b95f"/>
+  <rect x="178" y="234" width="198" height="16" rx="8" fill="#92db9a"/>
+  <rect x="178" y="276" width="154" height="16" rx="8" fill="#92db9a"/>
+  <rect x="178" y="318" width="180" height="16" rx="8" fill="#92db9a"/>
+  <text x="256" y="144" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="900" fill="#2f9f50">INI</text>
+  <circle cx="356" cy="358" r="46" fill="#e9ffec" stroke="#2f9f50" stroke-width="15"/>
+  <path d="M356 330v56M328 358h56" stroke="#2f9f50" stroke-width="14" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,225 @@
+{
+  "site": {
+    "name": "Coobbi",
+    "url": "https://coobbi.com",
+    "playDeveloperUrl": "https://play.google.com/store/apps/dev?id=4826052335238518015",
+    "description": "Coobbi Tools creates Android utilities for Java apps, file openers, network monitoring, server management and everyday productivity."
+  },
+  "apps": [
+    {
+      "id": "jre4android",
+      "packageName": "com.coobbi.jre",
+      "name": "Jre4Android",
+      "category": "Java Tools",
+      "slug": "jre4android",
+      "featured": true,
+      "title": "Jre4Android - Java Runtime & J2ME",
+      "shortDescription": "Run JAR files, CLASS files, Java Swing GUI apps and J2ME apps directly on Android.",
+      "seoDescription": "A Java runtime tool for Android that helps you run Java JAR files, CLASS files, command-line Java programs, Swing GUI apps and classic J2ME apps.",
+      "keywords": ["Java runtime for Android", "run JAR files on Android", "J2ME emulator", "Java Swing Android"],
+      "features": ["Run JAR files on Android", "Run .class files", "Java command-line mode", "Java Swing GUI support", "J2ME app support", "Java runtime on Android"],
+      "tutorials": [
+        {"title": "How to Run JAR Files on Android", "description": "Use Jre4Android to run compatible Java JAR apps directly on Android.", "href": "run-jar-files-on-android.html"},
+        {"title": "Run Java Swing Apps on Android", "description": "Launch desktop-style Java Swing GUI apps with touch, zoom and virtual mouse controls.", "href": "java-swing-on-android.html"},
+        {"title": "How to Run .class Files on Android", "description": "Run compiled Java CLASS files from your Android device.", "href": "run-class-files-on-android.html"},
+        {"title": "J2ME Emulator for Android", "description": "Run classic Java ME apps and games on Android.", "href": "j2me-emulator-android.html"}
+      ],
+      "extraSections": [
+        {"id": "pro", "title": "Free vs Pro", "body": "The free version is useful for running Java apps on Android. The Pro version adds no ads, custom arguments and Java 25 runtime support.", "link": {"href": "../jre4android-pro/index.html", "text": "Learn about Jre4Android Pro"}}
+      ]
+    },
+    {
+      "id": "jre4android-pro",
+      "packageName": "com.coobbi.jre.pro",
+      "name": "Jre4Android Pro",
+      "category": "Java Tools",
+      "slug": "jre4android-pro",
+      "featured": false,
+      "title": "Jre4Android Pro - Java Runtime for Android",
+      "shortDescription": "No ads, custom args support and Java 25 runtime for running Java apps on Android.",
+      "seoDescription": "Jre4Android Pro is the premium Java runtime tool for Android, with no ads, custom arguments and modern Java runtime support.",
+      "keywords": ["Java runtime Android Pro", "run Java apps Android", "Java 25 Android"],
+      "features": ["No ads", "Custom Java arguments", "Java 25 runtime support", "Run JAR and CLASS files", "Run Java Swing apps", "J2ME app support"],
+      "tutorials": []
+    },
+    {
+      "id": "jar-file-opener",
+      "packageName": "com.coobbi.jarfileopener",
+      "name": "Jar File Opener",
+      "category": "File Tools",
+      "slug": "jar-file-opener",
+      "featured": true,
+      "title": "Jar File Opener for Android",
+      "shortDescription": "Open, inspect, decompile and extract JAR files on Android.",
+      "seoDescription": "Jar File Opener helps Android users open JAR archives, inspect MANIFEST.MF files, extract contents and view Java class information.",
+      "keywords": ["JAR file opener Android", "open JAR files", "MANIFEST.MF viewer", "decompile class files"],
+      "features": ["Open JAR archives on Android", "Browse files inside JAR packages", "View MANIFEST.MF metadata", "Extract JAR contents", "Inspect class files", "Simple Android file opener workflow"],
+      "tutorials": [
+        {"title": "How to Open JAR Files on Android", "description": "Open, browse and inspect Java JAR archives on Android.", "href": "open-jar-files-on-android.html"},
+        {"title": "How to View MANIFEST.MF", "description": "Check Main-Class, Manifest-Version and other JAR metadata.", "href": "view-manifest-mf.html"},
+        {"title": "Decompile CLASS Files", "description": "Inspect Java class information from Android.", "href": "decompile-class-files.html"},
+        {"title": "Extract JAR Files", "description": "Extract JAR package contents directly on Android.", "href": "extract-jar-files.html"}
+      ]
+    },
+    {
+      "id": "apk-file-opener",
+      "packageName": "com.coobbi.apkfileopener",
+      "name": "APK File Opener",
+      "category": "File Tools",
+      "slug": "apk-file-opener",
+      "featured": false,
+      "title": "APK File Opener for Android",
+      "shortDescription": "Open APK, XAPK and APKS files, view app details, check permissions and extract package contents.",
+      "seoDescription": "APK File Opener helps Android users open APK files, view APK details, browse internal contents, check permissions and extract files from APK, XAPK and APKS packages.",
+      "keywords": ["APK file opener Android", "open APK files", "XAPK opener", "APKS viewer", "APK permissions viewer"],
+      "features": ["Open APK files on Android", "View app name, package name and version", "Check APK permissions", "Browse APK package contents", "Extract APK files", "Open XAPK and APKS packages", "Inspect DEX files and native libraries"],
+      "tutorials": []
+    },
+    {
+      "id": "dll-exe-viewer",
+      "packageName": "com.coobbi.dllfileviewer",
+      "name": "DLL File Viewer & EXE Viewer",
+      "category": "File Tools",
+      "slug": "dll-exe-viewer",
+      "featured": false,
+      "title": "DLL File Viewer & EXE Viewer for Android",
+      "shortDescription": "Open DLL and EXE files on Android, inspect Windows executable metadata and view package details.",
+      "seoDescription": "DLL File Viewer & EXE Viewer helps Android users open Windows DLL and EXE files, inspect executable metadata, view headers and understand portable executable file details.",
+      "keywords": ["DLL file viewer Android", "EXE file viewer Android", "open DLL files", "open EXE files", "portable executable viewer"],
+      "features": ["Open DLL files on Android", "Open EXE files on Android", "Inspect portable executable metadata", "View headers and file details", "Check imports and exports when available", "Useful for developers and file analysis"],
+      "tutorials": []
+    },
+    {
+      "id": "pages-file-opener",
+      "packageName": "com.coobbi.pagesfileopener",
+      "name": "Pages File Opener",
+      "category": "File Tools",
+      "slug": "pages-file-opener",
+      "featured": false,
+      "title": "Pages File Opener for Android",
+      "shortDescription": "Open Apple Pages documents on Android and inspect document package contents.",
+      "seoDescription": "Pages File Opener helps Android users open Apple Pages documents, view supported content and inspect files from .pages document packages.",
+      "keywords": ["Pages file opener Android", "open .pages files", "Apple Pages viewer Android", "Pages document opener"],
+      "features": ["Open .pages files on Android", "Inspect Apple Pages document packages", "View supported document content", "Extract package contents when available", "Simple file picker workflow", "Useful for iWork document files"],
+      "tutorials": []
+    },
+    {
+      "id": "ini-file-opener",
+      "packageName": "com.coobbi.inifileopener",
+      "name": "Ini File Opener",
+      "category": "File Tools",
+      "slug": "ini-file-opener",
+      "featured": false,
+      "title": "Ini File Opener for Android",
+      "shortDescription": "Open INI configuration files on Android and view sections, keys and values.",
+      "seoDescription": "Ini File Opener helps Android users open INI configuration files, read sections, inspect key-value settings and manage plain text configuration content.",
+      "keywords": ["INI file opener Android", "open INI files", "INI viewer Android", "configuration file viewer"],
+      "features": ["Open .ini files on Android", "View INI sections and keys", "Inspect configuration values", "Search text content", "Use a simple file picker", "Useful for developers and advanced users"],
+      "tutorials": []
+    },
+    {
+      "id": "dat-file-opener",
+      "packageName": "com.coobbi.datfileopener",
+      "name": "DAT File Opener",
+      "category": "File Tools",
+      "slug": "dat-file-opener",
+      "featured": false,
+      "title": "DAT File Opener for Android",
+      "shortDescription": "Open, view and extract DAT files on Android.",
+      "seoDescription": "DAT File Opener helps Android users open, view and extract common DAT files with a simple file inspection workflow.",
+      "keywords": ["DAT file opener Android", "open DAT files", "view DAT files Android"],
+      "features": ["Open DAT files on Android", "View file contents", "Extract supported data", "Use a simple file picker", "Handle unknown file formats", "Lightweight utility app"],
+      "tutorials": [
+        {"title": "How to Open DAT Files on Android", "description": "Use DAT File Opener to inspect and extract DAT files from your Android device.", "href": "open-dat-files-on-android.html"}
+      ]
+    },
+    {
+      "id": "obb-file-opener",
+      "packageName": "com.coobbi.obbfileopener",
+      "name": "OBB File Opener",
+      "category": "File Tools",
+      "slug": "obb-file-opener",
+      "featured": false,
+      "title": "OBB File Opener for Android",
+      "shortDescription": "Open, browse and extract Android OBB files.",
+      "seoDescription": "OBB File Opener helps Android users open, browse and extract APK expansion OBB files from games and apps.",
+      "keywords": ["OBB file opener Android", "open OBB files", "extract OBB files"],
+      "features": ["Open Android OBB files", "Browse OBB contents", "Extract files from OBB packages", "Inspect APK expansion files", "Simple file opener design", "Useful for Android game files"],
+      "tutorials": [
+        {"title": "How to Open OBB Files on Android", "description": "Open and browse Android OBB expansion files with OBB File Opener.", "href": "open-obb-files-on-android.html"}
+      ]
+    },
+    {
+      "id": "so-file-viewer",
+      "packageName": "com.coobbi.sofileopener",
+      "name": "SO File Viewer",
+      "category": "File Tools",
+      "slug": "so-file-viewer",
+      "featured": false,
+      "title": "SO File Viewer for Android",
+      "shortDescription": "Open .so files and check Android 16KB page size support.",
+      "seoDescription": "SO File Viewer helps Android users inspect native .so libraries and check Android 16KB page size compatibility.",
+      "keywords": ["SO file viewer Android", "open .so files", "Android 16KB page size"],
+      "features": ["Open .so files on Android", "Inspect native library metadata", "Check 16KB page size support", "Useful for Android developers", "View ELF-related information", "Lightweight native library viewer"],
+      "tutorials": [
+        {"title": "Check Android 16KB Page Size Support", "description": "Use SO File Viewer to inspect native libraries for Android 16KB page size compatibility.", "href": "check-android-16kb-page-size.html"}
+      ]
+    },
+    {
+      "id": "network-firewall",
+      "packageName": "com.coobbi.firewall",
+      "name": "Network Speed Monitor & Firewall",
+      "category": "Network Tools",
+      "slug": "network-firewall",
+      "featured": true,
+      "title": "Network Speed Monitor & Firewall",
+      "shortDescription": "Monitor internet speed and block unwanted app connections without root.",
+      "seoDescription": "Network Speed Monitor & Firewall helps Android users monitor real-time traffic, track app network usage and block unwanted connections without root.",
+      "keywords": ["network speed monitor Android", "Android firewall no root", "app network monitor"],
+      "features": ["Monitor real-time network speed", "Block unwanted app connections", "No root required", "Track app internet usage", "Improve privacy controls", "Lightweight Android network tool"],
+      "tutorials": []
+    },
+    {
+      "id": "mcpaper",
+      "packageName": "com.coobbi.papermc",
+      "name": "Minecraft Server: MCPaper",
+      "category": "Server Tools",
+      "slug": "mcpaper",
+      "featured": false,
+      "title": "Minecraft Server: MCPaper",
+      "shortDescription": "Run and manage Minecraft Java Edition servers on Android.",
+      "seoDescription": "Minecraft Server: MCPaper helps Android users run and manage Minecraft Java Edition servers from a phone or tablet.",
+      "keywords": ["Minecraft server Android", "PaperMC Android", "Minecraft Java server Android"],
+      "features": ["Run Minecraft Java Edition servers", "Manage server files on Android", "Start and stop server instances", "Use PaperMC server builds", "Mobile server management workflow", "Useful for local testing and small servers"],
+      "tutorials": []
+    },
+    {
+      "id": "minecraft-rcon-admin",
+      "packageName": "com.coobbi.rconadmin",
+      "name": "Minecraft RCON Admin",
+      "category": "Server Tools",
+      "slug": "minecraft-rcon-admin",
+      "featured": false,
+      "title": "Minecraft RCON Admin",
+      "shortDescription": "Remote admin tools for Minecraft Java servers.",
+      "seoDescription": "Minecraft RCON Admin helps server owners connect to Minecraft Java Edition servers and run RCON commands from Android.",
+      "keywords": ["Minecraft RCON Android", "Minecraft server admin", "RCON client Android"],
+      "features": ["Connect to Minecraft RCON servers", "Run remote admin commands", "Manage server sessions", "Save server profiles", "Use Android as a server console", "Simple tool for Minecraft admins"],
+      "tutorials": []
+    },
+    {
+      "id": "bluetooth-keyboard-mouse",
+      "packageName": "com.coobbi.keyboard",
+      "name": "Bluetooth Keyboard Mouse",
+      "category": "Utility Tools",
+      "slug": "bluetooth-keyboard-mouse",
+      "featured": false,
+      "title": "Bluetooth Keyboard Mouse",
+      "shortDescription": "Use your Android device as a Bluetooth keyboard and mouse.",
+      "seoDescription": "Bluetooth Keyboard Mouse turns an Android device into a Bluetooth keyboard and mouse for controlling nearby computers, tablets and compatible devices.",
+      "keywords": ["Bluetooth keyboard mouse Android", "Android as Bluetooth keyboard", "Android as mouse"],
+      "features": ["Use Android as a Bluetooth keyboard", "Use Android as a Bluetooth mouse", "Control compatible nearby devices", "Useful for tablets and PCs", "Portable input tool", "Simple Bluetooth utility"],
+      "tutorials": []
+    }
+  ]
+}

@@ -103,3 +103,47 @@ body {
   .trust-row{grid-template-columns:1fr}
   .app-card, .card:has(.app-icon){min-height:auto}
 }
+
+.app-card {
+  display: flex;
+  flex-direction: column;
+}
+.app-card .card-actions {
+  margin-top: auto;
+  padding-top: 16px;
+}
+.app-hero .app-meta {
+  margin-top: 18px;
+}
+.app-hero .app-meta span {
+  background: rgba(255,255,255,.14);
+  border: 1px solid rgba(255,255,255,.22);
+  color: #fff;
+}
+.hero-page-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+.app-detail {
+  display: grid;
+  gap: 20px;
+}
+.screenshot-strip {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(180px, 240px);
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+}
+.screenshot-strip img {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: #f8fafc;
+}

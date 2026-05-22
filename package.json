@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "build": "node scripts/build-site.js",
+    "sync:play": "node scripts/sync-play.js",
+    "refresh": "node scripts/sync-play.js && node scripts/build-site.js"
+  },
+  "private": true
+}
