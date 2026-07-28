@@ -83,7 +83,7 @@ async function fetchApp(app) {
   let successCount = 0;
   try {
     const discoveredPackages = await discoverDeveloperApps();
-    const knownPackages = new Set(appsData.apps.map((app) => app.packageName));
+    const knownPackages = new Set(appsData.apps.map((app) => app.packageName).filter(Boolean));
     const missingPackages = discoveredPackages.filter((packageName) => !knownPackages.has(packageName));
     if (missingPackages.length) {
       console.log(`Developer page has packages missing from data/apps.json: ${missingPackages.join(", ")}`);
@@ -93,7 +93,7 @@ async function fetchApp(app) {
   } catch (error) {
     console.log(`Developer page package check skipped (${error.message}).`);
   }
-  for (const app of appsData.apps) {
+  for (const app of appsData.apps.filter((item) => item.packageName)) {
     process.stdout.write(`Fetching ${app.packageName}... `);
     try {
       const fresh = await fetchApp(app);

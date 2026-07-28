@@ -166,6 +166,25 @@
       ]
     },
     {
+      "id": "sb3-file-opener",
+      "packageName": "com.coobbi.sb3fileopener",
+      "name": "SB3 File Opener & Player",
+      "category": "File Tools",
+      "slug": "sb3-file-opener",
+      "platform": "Android",
+      "storeName": "Google Play",
+      "storeUrl": "https://play.google.com/store/apps/details?id=com.coobbi.sb3fileopener",
+      "featured": true,
+      "title": "SB3 File Opener & Player for Android",
+      "shortDescription": "Open and play Scratch-compatible SB3 project files on Android.",
+      "seoDescription": "SB3 File Opener & Player is an Android app for importing, opening and playing Scratch-compatible .sb3 project files on a phone or tablet.",
+      "keywords": ["Scratch SB3 file Android", "SB3 file opener Android", "SB3 player Android", "open .sb3 files on Android"],
+      "features": ["Open .sb3 project files", "Play projects on Android phones and tablets", "Import files from device storage", "Browse recently opened projects", "Use projects offline", "Simple project playback"],
+      "tutorials": [
+        {"title": "How to Open SB3 Files on Android", "description": "Import and play a Scratch-compatible .sb3 project on an Android phone or tablet.", "href": "open-sb3-files-on-android.html"}
+      ]
+    },
+    {
       "id": "network-firewall",
       "packageName": "com.coobbi.firewall",
       "name": "Network Speed Monitor & Firewall",
@@ -230,12 +249,14 @@
       "storeName": "App Store",
       "storeUrl": "https://apps.apple.com/us/app/sb3-game-player/id6792155835",
       "featured": true,
-      "title": "SB3 Game Player for iPhone & iPad",
-      "shortDescription": "Open and play SB3 project files locally on iPhone and iPad.",
-      "seoDescription": "SB3 Game Player is an iPhone and iPad app for opening and playing .sb3 project files locally, with offline playback and no project upload required.",
+      "title": "Scratch SB3 File Player for iPhone & iPad",
+      "shortDescription": "Open and play Scratch-compatible SB3 project files locally on iPhone and iPad.",
+      "seoDescription": "SB3 Game Player is an iOS and iPadOS app for opening and playing Scratch-compatible .sb3 project files locally, with offline playback and no project upload required.",
       "keywords": ["SB3 file opener iPhone", "SB3 player iOS", "open .sb3 files", "play SB3 projects on iPad"],
       "features": ["Open .sb3 project files", "Play projects on iPhone and iPad", "Import from the Files app", "Process projects locally", "Use projects offline", "Simple full-screen playback"],
-      "tutorials": [],
+      "tutorials": [
+        {"title": "How to Open SB3 Files on iPhone and iPad", "description": "Import and play a Scratch-compatible .sb3 project on iOS or iPadOS.", "href": "open-sb3-files-on-iphone-ipad.html"}
+      ],
       "supportUrl": "support.html",
       "privacyUrl": "privacy.html"
     },
