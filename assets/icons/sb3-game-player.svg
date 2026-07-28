@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="SB3 Game Player icon">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#2563eb"/></linearGradient></defs>
+  <rect width="512" height="512" rx="112" fill="url(#g)"/>
+  <path d="M199 151c0-18 20-29 36-19l166 105c15 9 15 31 0 40L235 382c-16 10-36-1-36-19z" fill="#fff"/>
+  <path d="M105 150h58v212h-58z" rx="20" fill="#fff" opacity=".9"/>
+</svg>

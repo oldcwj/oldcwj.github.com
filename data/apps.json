@@ -3,7 +3,7 @@
     "name": "Coobbi",
     "url": "https://coobbi.com",
     "playDeveloperUrl": "https://play.google.com/store/apps/dev?id=4826052335238518015",
-    "description": "Coobbi Tools creates Android utilities for Java apps, file openers, network monitoring, server management and everyday productivity."
+    "description": "Coobbi creates useful iPhone, iPad and Android apps for opening files, playing SB3 projects, Java tools, network monitoring and everyday productivity."
   },
   "apps": [
     {
@@ -220,6 +220,42 @@
       "keywords": ["Bluetooth keyboard mouse Android", "Android as Bluetooth keyboard", "Android as mouse"],
       "features": ["Use Android as a Bluetooth keyboard", "Use Android as a Bluetooth mouse", "Control compatible nearby devices", "Useful for tablets and PCs", "Portable input tool", "Simple Bluetooth utility"],
       "tutorials": []
+    },
+    {
+      "id": "sb3-game-player",
+      "name": "SB3 Game Player",
+      "category": "iPhone & iPad Apps",
+      "slug": "sb3-game-player",
+      "platform": "iOS and iPadOS",
+      "storeName": "App Store",
+      "storeUrl": "https://apps.apple.com/us/app/sb3-game-player/id6792155835",
+      "featured": true,
+      "title": "SB3 Game Player for iPhone & iPad",
+      "shortDescription": "Open and play SB3 project files locally on iPhone and iPad.",
+      "seoDescription": "SB3 Game Player is an iPhone and iPad app for opening and playing .sb3 project files locally, with offline playback and no project upload required.",
+      "keywords": ["SB3 file opener iPhone", "SB3 player iOS", "open .sb3 files", "play SB3 projects on iPad"],
+      "features": ["Open .sb3 project files", "Play projects on iPhone and iPad", "Import from the Files app", "Process projects locally", "Use projects offline", "Simple full-screen playback"],
+      "tutorials": [],
+      "supportUrl": "support.html",
+      "privacyUrl": "privacy.html"
+    },
+    {
+      "id": "jarinspector-ios",
+      "name": "JarInspector - JAR Viewer",
+      "category": "iPhone & iPad Apps",
+      "slug": "jarinspector-ios",
+      "platform": "iOS and iPadOS",
+      "storeName": "App Store",
+      "storeUrl": "https://apps.apple.com/us/app/jarinspector-jar-viewer/id6792224147",
+      "featured": true,
+      "title": "JarInspector - JAR Viewer for iPhone & iPad",
+      "shortDescription": "Open, inspect and decompile JAR, ZIP and Java class files on iPhone and iPad.",
+      "seoDescription": "JarInspector is a JAR file opener and viewer for iPhone and iPad that browses Java archives, reads MANIFEST.MF metadata and previews decompiled class files locally.",
+      "keywords": ["JAR file opener iPhone", "JAR viewer iOS", "Java class viewer", "MANIFEST.MF viewer"],
+      "features": ["Open JAR and ZIP archives", "Browse files inside Java archives", "View MANIFEST.MF metadata", "Inspect Java class files", "Preview decompiled Java source", "Process files locally"],
+      "tutorials": [],
+      "supportUrl": "support.html",
+      "privacyUrl": "privacy.html"
     }
   ]
 }

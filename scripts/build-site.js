@@ -30,6 +30,7 @@ function jsonLd(data) {
 }
 
 function play(app) {
+  if (!app.packageName) return {};
   return playCache.apps?.[app.packageName] || {};
 }
 
@@ -44,7 +45,16 @@ function relativeIcon(app, depth = 0) {
 }
 
 function storeUrl(app) {
+  if (app.storeUrl) return app.storeUrl;
   return `https://play.google.com/store/apps/details?id=${encodeURIComponent(app.packageName)}`;
+}
+
+function storeName(app) {
+  return app.storeName || "Google Play";
+}
+
+function platform(app) {
+  return app.platform || "Android";
 }
 
 function nav(active, depth = 0) {
@@ -62,7 +72,7 @@ function nav(active, depth = 0) {
 
 function footer(depth = 0) {
   const prefix = "../".repeat(depth);
-  return `<footer class="footer"><div class="footer-inner"><div>© Coobbi. Independent Android tools.</div><div><a href="${prefix}index.html">Home</a><a href="${prefix}apps.html">Apps</a><a href="${prefix}tutorials.html">Tutorials</a><a href="${prefix}contact.html">Contact</a></div></div></footer>`;
+  return `<footer class="footer"><div class="footer-inner"><div>© Coobbi. Independent mobile apps and utilities.</div><div><a href="${prefix}index.html">Home</a><a href="${prefix}apps.html">Apps</a><a href="${prefix}tutorials.html">Tutorials</a><a href="${prefix}contact.html">Contact</a></div></div></footer>`;
 }
 
 function head({ title, description, canonical, image, depth = 0, structuredData = [] }) {
@@ -90,7 +100,7 @@ function appMeta(app) {
 
 function appCard(app, depth = 0) {
   const prefix = "../".repeat(depth);
-  return `<article class="card app-card"><img class="app-icon" src="${esc(relativeIcon(app, depth))}" alt="${esc(app.name)} icon"><h3>${esc(app.name)}</h3><p>${esc(app.shortDescription)}</p>${appMeta(app)}<div class="card-actions"><a class="card-link" href="${prefix}${app.slug}/index.html">Learn more</a><a class="card-link store" href="${storeUrl(app)}">Google Play</a></div></article>`;
+  return `<article class="card app-card"><img class="app-icon" src="${esc(relativeIcon(app, depth))}" alt="${esc(app.name)} icon"><h3>${esc(app.name)}</h3><p>${esc(app.shortDescription)}</p>${appMeta(app)}<div class="card-actions"><a class="card-link" href="${prefix}${app.slug}/index.html">Learn more</a><a class="card-link store" href="${storeUrl(app)}">${esc(storeName(app))}</a></div></article>`;
 }
 
 function homePage() {
@@ -102,11 +112,11 @@ function homePage() {
     "@type": "Organization",
     "name": appsData.site.name,
     "url": appsData.site.url,
-    "sameAs": [appsData.site.playDeveloperUrl]
+    "sameAs": [appsData.site.playDeveloperUrl, ...apps.filter((app) => app.storeName === "App Store").map(storeUrl)]
   }];
   const heroCards = featured.slice(0, 3).map((app) => `<div class="hero-card"><strong><img class="hero-app-icon" src="${esc(relativeIcon(app))}" alt="${esc(app.name)} icon">${esc(app.name)}</strong><span>${esc(app.shortDescription)}</span></div>`).join("");
-  return `${head({ title: "Coobbi Tools - Android File, Java and Network Utilities", description: appsData.site.description, canonical: `${appsData.site.url}/`, image: "assets/icons/coobbi.svg", structuredData })}<body>${nav("home")}
-<section class="hero"><div class="hero-inner"><div><span class="kicker">Android tools by Coobbi</span><h1>Useful Android tools for files, Java apps and network control.</h1><p>Open special file formats, run Java apps on Android, inspect native libraries, monitor app connections and manage server utilities with lightweight Coobbi apps.</p><div class="hero-actions"><a class="btn primary" href="apps.html">Explore Apps</a><a class="btn secondary" href="tutorials.html">Read Tutorials</a></div><div class="trust-row"><div class="trust-item"><strong>${fileTools.length} File Tools</strong><span>JAR, DAT, OBB, SO</span></div><div class="trust-item"><strong>Java Runtime</strong><span>JAR, CLASS, Swing, J2ME</span></div><div class="trust-item"><strong>${apps.length} Android Apps</strong><span>Network, server and utility tools</span></div></div></div><div class="hero-panel">${heroCards}</div></div></section>
+  return `${head({ title: "Coobbi Apps - iOS and Android File & Utility Tools", description: appsData.site.description, canonical: `${appsData.site.url}/`, image: "assets/icons/coobbi.svg", structuredData })}<body>${nav("home")}
+<section class="hero"><div class="hero-inner"><div><span class="kicker">iOS & Android apps by Coobbi</span><h1>Useful mobile apps for files, projects and developer tools.</h1><p>Play SB3 projects on iPhone and iPad, inspect JAR files, run Java apps on Android, and use focused file, network and server utilities.</p><div class="hero-actions"><a class="btn primary" href="apps.html">Explore Apps</a><a class="btn secondary" href="tutorials.html">Read Tutorials</a></div><div class="trust-row"><div class="trust-item"><strong>iPhone & iPad</strong><span>SB3 Player and JAR Viewer</span></div><div class="trust-item"><strong>${fileTools.length} File Tools</strong><span>JAR, DAT, OBB, SO</span></div><div class="trust-item"><strong>${apps.length} Mobile Apps</strong><span>iOS and Android utilities</span></div></div></div><div class="hero-panel">${heroCards}</div></div></section>
 <main><section class="container"><div class="section-head"><div><h2>Featured Apps</h2><p>Start with Coobbi's core Android tools for Java apps, file inspection and network control.</p></div><a class="btn blue" href="apps.html">All apps</a></div><div class="grid featured">${featured.map((app) => appCard(app)).join("")}</div></section><section class="container"><div class="section-head"><div><h2>File Tools</h2><p>Dedicated Android file opener apps for JAR, DAT, OBB and native SO libraries.</p></div></div><div class="grid apps">${fileTools.map((app) => appCard(app)).join("")}</div></section>${tutorialBlock()}<section class="container"><div class="cta"><div><h2>Build your Android utility workflow with Coobbi Tools.</h2><p>Use one tool to inspect files, another to run Java, and more tools for network monitoring and server management.</p></div><a class="btn primary" href="apps.html">View all apps</a></div></section></main>${footer()}</body></html>`;
 }
 
@@ -128,11 +138,11 @@ function appsPage() {
   const structuredData = [{
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Coobbi Android Apps",
+    "name": "Coobbi Mobile Apps",
     "url": `${appsData.site.url}/apps.html`,
-    "description": "Browse all Coobbi Android apps available on Google Play."
+    "description": "Browse Coobbi apps for iPhone, iPad and Android."
   }];
-  return `${head({ title: "Coobbi Android Apps - File, Java and Network Tools", description: "Browse Coobbi Android apps including Java tools, Android file openers, network utilities, Minecraft server tools and Bluetooth utilities.", canonical: `${appsData.site.url}/apps.html`, image: "assets/icons/coobbi.svg", structuredData })}<body>${nav("apps")}<section class="page-hero"><div class="container"><h1>Coobbi Android Apps</h1><p>Browse all Coobbi apps available on Google Play, grouped by the task they help you finish.</p><div class="hero-actions"><a class="btn primary" href="${appsData.site.playDeveloperUrl}">View Developer Page</a></div></div></section><main>${groups.map((group) => `<section class="container"><div class="section-head"><div><h2>${esc(group)}</h2><p>${esc(groupIntro(group))}</p></div></div><div class="grid apps">${appsData.apps.filter((app) => app.category === group).map((app) => appCard(app)).join("")}</div></section>`).join("")}</main>${footer()}</body></html>`;
+  return `${head({ title: "Coobbi Apps for iPhone, iPad and Android", description: "Browse Coobbi mobile apps including SB3 Game Player, JarInspector, Java tools, Android file openers, network utilities and server tools.", canonical: `${appsData.site.url}/apps.html`, image: "assets/icons/coobbi.svg", structuredData })}<body>${nav("apps")}<section class="page-hero"><div class="container"><h1>Coobbi Mobile Apps</h1><p>Browse Coobbi apps for iPhone, iPad and Android, grouped by the task they help you finish.</p><div class="hero-actions"><a class="btn primary" href="${appsData.site.playDeveloperUrl}">View Android Apps</a></div></div></section><main>${groups.map((group) => `<section class="container"><div class="section-head"><div><h2>${esc(group)}</h2><p>${esc(groupIntro(group))}</p></div></div><div class="grid apps">${appsData.apps.filter((app) => app.category === group).map((app) => appCard(app)).join("")}</div></section>`).join("")}</main>${footer()}</body></html>`;
 }
 
 function groupIntro(group) {
@@ -142,6 +152,7 @@ function groupIntro(group) {
     "Network Tools": "Monitor traffic and control app network access from Android.",
     "Server Tools": "Run or manage Minecraft Java Edition server workflows on Android.",
     "Utility Tools": "Small Android tools for everyday device control and productivity."
+    ,"iPhone & iPad Apps": "Open and play specialized project and archive file formats locally on iOS and iPadOS."
   }[group] || `Coobbi apps for ${group.toLowerCase()}.`;
 }
 
@@ -153,7 +164,7 @@ function appPage(app) {
     "@type": "MobileApplication",
     "name": app.name,
     "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Android",
+    "operatingSystem": platform(app),
     "description": app.seoDescription,
     "url": `${appsData.site.url}/${app.slug}/`,
     "image": relativeIcon(app, 1),
@@ -167,7 +178,8 @@ function appPage(app) {
       "ratingCount": data.ratingCount
     };
   }
-  return `${head({ title: `${app.title} - Coobbi`, description: app.seoDescription, canonical: `${appsData.site.url}/${app.slug}/`, image: relativeIcon(app, 1), depth: 1, structuredData })}<body>${nav("apps", 1)}<section class="page-hero app-hero"><div class="container"><img class="app-icon hero-page-icon" src="${esc(relativeIcon(app, 1))}" alt="${esc(app.name)} icon"><h1>${esc(app.title)}</h1><p>${esc(app.shortDescription)}</p>${appMeta(app)}<div class="hero-actions"><a class="btn primary" href="${storeUrl(app)}">Download on Google Play</a><a class="btn secondary" href="../apps.html">More Coobbi Apps</a></div></div></section><main class="container app-detail"><section class="card"><h2>About ${esc(app.name)}</h2><p>${esc(app.seoDescription)}</p>${data.description ? `<p>${esc(data.description)}</p>` : ""}</section><section class="card"><h2>Key Features</h2><ul>${app.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul></section>${screenshots.length ? `<section class="card"><h2>Screenshots</h2><div class="screenshot-strip">${screenshots.map((src) => `<img src="${esc(src)}" alt="${esc(app.name)} screenshot">`).join("")}</div></section>` : ""}${app.tutorials.length ? `<section class="card"><h2>Tutorials</h2><div class="grid tutorials">${app.tutorials.map((tutorial) => `<a class="card tutorial-card" href="${esc(tutorial.href)}"><strong>${esc(tutorial.title)}</strong>${esc(tutorial.description)}</a>`).join("")}</div></section>` : ""}${(app.extraSections || []).map(extraSection).join("")}<section class="card"><h2>Download ${esc(app.name)}</h2><p>Get ${esc(app.name)} from Google Play.</p><a class="btn blue" href="${storeUrl(app)}">Download on Google Play</a></section></main>${footer(1)}</body></html>`;
+  const policyLinks = app.supportUrl || app.privacyUrl ? `<section class="card"><h2>Support & Privacy</h2>${app.supportUrl ? `<p><a href="${esc(app.supportUrl)}">Support for ${esc(app.name)}</a></p>` : ""}${app.privacyUrl ? `<p><a href="${esc(app.privacyUrl)}">Privacy Policy</a></p>` : ""}</section>` : "";
+  return `${head({ title: `${app.title} - Coobbi`, description: app.seoDescription, canonical: `${appsData.site.url}/${app.slug}/`, image: relativeIcon(app, 1), depth: 1, structuredData })}<body>${nav("apps", 1)}<section class="page-hero app-hero"><div class="container"><img class="app-icon hero-page-icon" src="${esc(relativeIcon(app, 1))}" alt="${esc(app.name)} icon"><h1>${esc(app.title)}</h1><p>${esc(app.shortDescription)}</p>${appMeta(app)}<div class="hero-actions"><a class="btn primary" href="${storeUrl(app)}">Download on the ${esc(storeName(app))}</a><a class="btn secondary" href="../apps.html">More Coobbi Apps</a></div></div></section><main class="container app-detail"><section class="card"><h2>About ${esc(app.name)}</h2><p>${esc(app.seoDescription)}</p>${data.description ? `<p>${esc(data.description)}</p>` : ""}</section><section class="card"><h2>Key Features</h2><ul>${app.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul></section>${screenshots.length ? `<section class="card"><h2>Screenshots</h2><div class="screenshot-strip">${screenshots.map((src) => `<img src="${esc(src)}" alt="${esc(app.name)} screenshot">`).join("")}</div></section>` : ""}${app.tutorials.length ? `<section class="card"><h2>Tutorials</h2><div class="grid tutorials">${app.tutorials.map((tutorial) => `<a class="card tutorial-card" href="${esc(tutorial.href)}"><strong>${esc(tutorial.title)}</strong>${esc(tutorial.description)}</a>`).join("")}</div></section>` : ""}${(app.extraSections || []).map(extraSection).join("")}${policyLinks}<section class="card"><h2>Download ${esc(app.name)}</h2><p>Get ${esc(app.name)} from the ${esc(storeName(app))}.</p><a class="btn blue" href="${storeUrl(app)}">Download on the ${esc(storeName(app))}</a></section></main>${footer(1)}</body></html>`;
 }
 
 function extraSection(section) {
@@ -190,7 +202,8 @@ function sitemap() {
     "obb-file-opener/open-obb-files-on-android.html",
     "dat-file-opener/open-dat-files-on-android.html"
   ];
-  const urls = [...staticPages, ...appPages, ...tutorialPages];
+  const auxiliaryPages = appsData.apps.flatMap((app) => [app.supportUrl, app.privacyUrl].filter(Boolean).map((page) => `${app.slug}/${page}`));
+  const urls = [...staticPages, ...appPages, ...tutorialPages, ...auxiliaryPages];
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((url, index) => `<url><loc>${appsData.site.url}/${url}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>${index === 0 ? "1.0" : "0.8"}</priority></url>`).join("\n")}\n</urlset>\n`;
 }
 
