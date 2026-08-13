@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>File Inspector – Identify & Analyze Files | Coobbi</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <meta name="description" content="Identify unknown files and inspect file signatures, hashes, strings and binary data directly in your browser.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://coobbi.com/file-inspector/">
+  <link rel="stylesheet" href="../assets/style.css">
+  <meta property="og:title" content="File Inspector – Coobbi">
+  <meta property="og:description" content="Identify and inspect files locally in your browser.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://coobbi.com/file-inspector/">
+  <meta property="og:image" content="https://coobbi.com/assets/icons/coobbi.svg">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <header class="site-header"><div class="nav"><a class="brand" href="../index.html"><img class="site-logo" src="../assets/icons/coobbi.svg" alt="Coobbi logo"><span>Coobbi</span></a><div class="nav-links"><a href="../index.html">Home</a><a class="active" href="index.html">Web Tools</a><a href="../apps.html">Apps</a><a href="../tutorials.html">Tutorials</a><a href="../contact.html">Contact</a></div></div></header>
+  <section class="page-hero"><div class="container tool-page"><span class="kicker">Browser-based file analysis</span><h1>File Inspector</h1><p>Identify unknown files and review their format, signature and binary information directly on your device.</p></div></section>
+  <main class="container tool-page tool-stage">
+    <section class="card tool-shell-card" aria-labelledby="file-tool-title">
+      <div class="tool-shell-top"><div><strong id="file-tool-title">Inspect a local file</strong><span>Identify its format from signatures and internal structure.</span></div><span class="local-badge">Local processing</span></div>
+      <div class="drop-shell interactive" id="drop-zone"><div class="drop-icon" aria-hidden="true">FILE</div><h2>Drop a file here</h2><p>or choose a file from your device. Files under 100 MB are recommended for the best experience.</p><button class="btn blue file-button" id="file-choose" type="button">Choose File</button><input class="visually-hidden" id="file-input" type="file"><button class="reset-button" id="reset-file" type="button" hidden>Reset</button></div>
+      <p class="privacy-note">Your file is processed locally in this browser. Its name, content, hashes and extracted strings are not uploaded to Coobbi.</p>
+      <p class="large-file-note" id="large-file-note" hidden>This is a large file and analysis may take longer.</p>
+      <p class="analysis-status" id="analysis-status" role="status" aria-live="polite" hidden></p>
+    </section>
+    <div class="inspection-results" id="inspection-results" hidden>
+      <section class="result-section"><div class="section-head"><div><h2>File Information</h2><p>Basic information supplied by the selected local file.</p></div></div><dl class="result-grid"><div><dt>File name</dt><dd data-field="fileName">—</dd></div><div><dt>File size</dt><dd data-field="fileSize">—</dd></div><div><dt>Extension</dt><dd data-field="extension">—</dd></div><div><dt>Browser MIME</dt><dd data-field="browserMime">—</dd></div></dl></section>
+      <section class="result-section"><div class="section-head"><div><h2>Detection</h2><p>Format evidence is taken from file content before the extension.</p></div></div><dl class="result-grid"><div><dt>Detected format</dt><dd data-field="detectedFormat">—</dd></div><div><dt>Confidence</dt><dd data-field="confidence">—</dd></div><div><dt>Archive entries</dt><dd data-field="archiveEntries">—</dd></div><div><dt>Magic bytes</dt><dd class="mono" data-field="magicBytes">—</dd></div></dl><div class="evidence-card"><strong>Detection evidence</strong><p data-field="evidence">—</p></div><p class="extension-assessment" data-field="extensionMatch">—</p></section>
+      <section class="result-section"><div class="section-head"><div><h2>File Hashes</h2><p>Calculated in a background worker using 2 MB slices.</p></div><span class="hash-progress" data-field="hashProgress">Waiting</span></div><dl class="hash-list"><div><dt>SHA-256</dt><dd data-field="sha256">—</dd></div><div><dt>MD5</dt><dd data-field="md5">—</dd></div></dl></section>
+      <section class="result-section"><div class="section-head"><div><h2>Hex & ASCII Preview</h2><p>The first 256 bytes of the file.</p></div></div><pre class="binary-preview" id="hex-preview" tabindex="0"></pre></section>
+      <section class="result-section"><div class="section-head"><div><h2>Printable Strings Preview</h2><p>Up to 30 ASCII strings found in the first 1 MB.</p></div></div><pre class="strings-preview" id="strings-preview" tabindex="0"></pre></section>
+      <section class="specialized-route" id="specialized-route" hidden></section>
+    </div>
+    <section class="container" style="padding-left:0;padding-right:0"><div class="section-head"><div><h2>What the inspector checks</h2><p>The tool performs static analysis only. It never executes the selected file.</p></div></div><div class="feature-list"><div class="feature-item"><strong>Format detection</strong><span>Magic bytes, structure and extension agreement.</span></div><div class="feature-item"><strong>Binary preview</strong><span>Header bytes with hexadecimal and ASCII views.</span></div><div class="feature-item"><strong>Hashes & strings</strong><span>Local fingerprints and readable text previews.</span></div></div></section>
+    <section><div class="section-head"><div><h2>Related Web Tools</h2><p>Focused views will share the same local-processing principles.</p></div></div><div class="grid related-tools"><a class="card tutorial-card" href="../hex-viewer/index.html"><strong>Hex Viewer</strong>Read file bytes by offset.</a><a class="card tutorial-card" href="../strings-viewer/index.html"><strong>Strings Viewer</strong>Find readable text in a file.</a><a class="card tutorial-card" href="../file-hash-calculator/index.html"><strong>File Hash Calculator</strong>Calculate file fingerprints.</a></div></section>
+  </main>
+  <footer class="footer"><div class="footer-inner"><div>© Coobbi. Independent file tools and mobile apps.</div><div><a href="../index.html">Home</a><a href="index.html">Web Tools</a><a href="../apps.html">Apps</a><a href="../contact.html">Contact</a></div></div></footer>
+  <script type="module" src="../assets/tools/js/file-inspector.mjs"></script>
+</body>
+</html>

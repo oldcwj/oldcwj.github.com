@@ -25,6 +25,14 @@ This site is still static, but app pages are generated from data files.
 npm run build
 ```
 
+Check that all existing public routes, canonicals, and immutable iOS Privacy/Support pages are still intact:
+
+```sh
+npm test
+```
+
+File Inspector, Hex Viewer, Strings Viewer, File Hash Calculator, EXE Inspector, and DLL Inspector are functional and indexable. They process selected files locally without uploading file contents. EXE and DLL pages share one bounded PE parser.
+
 Refresh cached public Google Play data:
 
 ```sh

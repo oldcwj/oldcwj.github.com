@@ -1,6 +1,11 @@
 {
   "scripts": {
     "build": "node scripts/build-site.js",
+    "check:routes": "node scripts/check-routes.js",
+    "check:site": "node scripts/check-site.js",
+    "fixtures": "node scripts/generate-test-fixtures.mjs",
+    "test:unit": "node --test tests/*.test.mjs",
+    "test": "npm run check:routes && npm run check:site && npm run test:unit",
     "sync:play": "node scripts/sync-play.js",
     "refresh": "node scripts/sync-play.js && node scripts/build-site.js"
   },
