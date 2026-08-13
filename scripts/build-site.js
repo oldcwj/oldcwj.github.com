@@ -67,9 +67,11 @@ function storeCta(app) {
 
 function nav(active, depth = 0) {
   const prefix = "../".repeat(depth);
+  if (active === "home") {
+    return `<header class="site-header home-header"><div class="nav"><a class="brand" href="${prefix}index.html"><img class="site-logo" src="${prefix}assets/icons/coobbi.svg" alt="Coobbi logo"><span>Coobbi</span></a><div class="nav-links"><a class="active" href="#web-tools">Tools</a><a href="#mobile-apps">Mobile Apps</a><a href="#guides">Guides</a><a href="${prefix}contact.html">About</a><a class="nav-cta" href="${prefix}file-inspector/index.html">Open File Inspector</a></div></div></header>`;
+  }
   const items = [
     ["Home", "index.html", "home"],
-    ...(active === "home" ? [["Web Tools", "file-inspector/index.html", "tools"]] : []),
     ["Apps", "apps.html", "apps"],
     ["Tutorials", "tutorials.html", "tutorials"],
     ["Jre4Android", "jre4android/index.html", "jre4android"],
@@ -119,8 +121,6 @@ function sb3Block(depth = 0) {
 
 function homePage() {
   const apps = appsData.apps;
-  const featured = apps.filter((app) => app.featured);
-  const fileTools = apps.filter((app) => app.category === "File Tools");
   const structuredData = [{
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -128,20 +128,44 @@ function homePage() {
     "url": appsData.site.url,
     "sameAs": [appsData.site.playDeveloperUrl, ...apps.filter((app) => app.storeName === "App Store").map(storeUrl)]
   }];
-  const heroCards = featured.slice(0, 3).map((app) => `<div class="hero-card"><strong><img class="hero-app-icon" src="${esc(relativeIcon(app))}" alt="${esc(app.name)} icon">${esc(app.name)}</strong><span>${esc(app.shortDescription)}</span></div>`).join("");
   return `${head({ title: "Coobbi File Tools and Mobile Apps", description: "Inspect files in your browser and discover Coobbi apps for iPhone, iPad and Android.", canonical: `${appsData.site.url}/`, image: "assets/icons/coobbi.svg", structuredData })}<body>${nav("home")}
-<section class="hero"><div class="hero-inner"><div><span class="kicker">File & developer tools by Coobbi</span><h1>Understand files. Use focused tools.</h1><p>Inspect files locally in your browser, or explore Coobbi apps for iPhone, iPad and Android.</p><div class="hero-actions"><a class="btn primary" href="file-inspector/index.html">Open File Inspector</a><a class="btn secondary" href="apps.html">Explore Apps</a></div><div class="trust-row"><div class="trust-item"><strong>Local by design</strong><span>Browser tools process files on your device</span></div><div class="trust-item"><strong>${fileTools.length} File Apps</strong><span>Focused tools for mobile workflows</span></div><div class="trust-item"><strong>${apps.length} Mobile Apps</strong><span>iOS, iPadOS and Android utilities</span></div></div></div><div class="hero-panel">${heroCards}</div></div></section>
-<main>${webToolsBlock()}${sb3Block()}<section class="container"><div class="section-head"><div><h2>Featured Apps</h2><p>Start with Coobbi's core mobile tools for projects, Java apps, file inspection and network control.</p></div><a class="btn blue" href="apps.html">All apps</a></div><div class="grid featured">${featured.map((app) => appCard(app)).join("")}</div></section><section class="container"><div class="section-head"><div><h2>Mobile File Tools</h2><p>Dedicated mobile file opener apps for SB3, JAR, DAT, OBB and native SO libraries.</p></div></div><div class="grid apps">${fileTools.map((app) => appCard(app)).join("")}</div></section>${tutorialBlock()}<section class="container"><div class="cta"><div><h2>Build your file utility workflow with Coobbi.</h2><p>Inspect files in your browser, play projects, run Java and use focused mobile tools.</p></div><a class="btn primary" href="file-inspector/index.html">Explore Web Tools</a></div></section></main>${footer()}</body></html>`;
+<section class="home-hero"><div class="home-hero-inner"><div class="home-hero-copy"><span class="home-eyebrow">Private browser tools</span><h1>Understand any file.<br><span>Right in your browser.</span></h1><p>Identify formats, inspect bytes, extract strings and calculate hashes — locally, without uploading your files.</p><div class="home-actions"><a class="home-button primary" href="file-inspector/index.html">Inspect a file <span aria-hidden="true">→</span></a><a class="home-button secondary" href="#web-tools">Explore all tools</a></div><div class="home-assurance"><span>No upload</span><span>No install</span><span>Static analysis only</span></div></div>${inspectorPreview()}</div></section>
+<main>${webToolsBlock()}${homeTrustBlock()}${homeAppsBlock(apps)}${homeGuidesBlock()}<section class="container home-final"><div class="cta"><div><span class="home-eyebrow inverse">Start with a local file</span><h2>See what is inside—without sending it anywhere.</h2><p>Choose a focused browser tool or explore Coobbi apps for mobile workflows.</p></div><a class="btn primary" href="file-inspector/index.html">Open File Inspector</a></div></section></main>${footer()}</body></html>`;
+}
+
+function inspectorPreview() {
+  return `<div class="inspector-preview" aria-label="Example File Inspector result"><div class="preview-bar"><span class="preview-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>File Inspector / result</span></div><div class="preview-body"><div class="preview-file"><span class="preview-file-mark">JAR</span><div><strong>sample-project.jar</strong><small>184.2 KB</small></div><span class="preview-local">Processed locally</span></div><dl class="preview-result"><div><dt>Format</dt><dd class="accent">Java Archive (JAR)</dd></div><div><dt>Confidence</dt><dd>High · ZIP structure + manifest</dd></div><div><dt>Signature</dt><dd>50 4B 03 04</dd></div><div><dt>Entries</dt><dd>128 files</dd></div><div><dt>SHA-256</dt><dd>8f2a4ce72d60…e7284</dd></div></dl><p class="preview-status">✓ Analysis complete. Your file was not uploaded.</p></div></div>`;
 }
 
 function webToolsBlock() {
   const tools = [
-    ["file-inspector/index.html", "FI", "File Inspector", "Identify unknown files and review signatures, metadata and binary previews."],
-    ["hex-viewer/index.html", "HX", "Hex Viewer", "Read file bytes by offset with a focused hexadecimal and ASCII layout."],
-    ["strings-viewer/index.html", "ST", "Strings Viewer", "Find readable text embedded in local files without uploading them."],
-    ["file-hash-calculator/index.html", "#", "File Hash Calculator", "Calculate common file hashes locally in your browser."]
+    ["file-inspector/index.html", "FI", "File Inspector", "Identify unknown files from signatures, structure and extension agreement.", "primary", "Any file"],
+    ["exe-inspector/index.html", "EXE", "EXE Inspector", "Inspect PE headers, architecture, sections, imports and exports.", "", "PE / EXE"],
+    ["dll-inspector/index.html", "DLL", "DLL Inspector", "Analyze Windows libraries locally without loading or executing them.", "", "PE / DLL"],
+    ["hex-viewer/index.html", "HX", "Hex Viewer", "Read file bytes by offset in a focused hexadecimal and ASCII view.", "", "HEX / ASCII"],
+    ["strings-viewer/index.html", "ST", "Strings Viewer", "Find readable text embedded in local files with byte offsets.", "", "Text / Binary"],
+    ["file-hash-calculator/index.html", "#", "Hash Calculator", "Calculate SHA-256, SHA-1 and MD5 fingerprints locally.", "", "SHA / MD5"]
   ];
-  return `<section class="container web-tools-home"><div class="section-head"><div><span class="kicker light">Web Tools</span><h2>Inspect files directly in your browser</h2><p>A growing set of private, browser-based tools for understanding files and binary data.</p></div><a class="btn blue" href="file-inspector/index.html">Open File Inspector</a></div><div class="grid tools-grid">${tools.map(([href, mark, title, description]) => `<a class="card tool-card" href="${href}"><span class="tool-mark" aria-hidden="true">${mark}</span><h3>${title}</h3><p>${description}</p><span class="tool-link">Open tool →</span></a>`).join("")}</div></section>`;
+  return `<section class="container web-tools-home" id="web-tools"><div class="home-section-head"><div><span class="home-eyebrow">Web tools</span><h2>Focused tools for file analysis</h2><p>Fast, private and built for real files—everything runs in your browser.</p></div><a class="home-text-link" href="file-inspector/index.html">Start with File Inspector →</a></div><div class="home-tools-grid">${tools.map(([href, mark, title, description, className, tag]) => `<a class="home-tool-card ${className}" href="${href}"><span class="home-tool-top"><span class="tool-mark" aria-hidden="true">${mark}</span><span class="home-tool-tag">${tag}</span></span><h3>${title}</h3><p>${description}</p><span class="tool-link">Open tool →</span></a>`).join("")}</div></section>`;
+}
+
+function homeTrustBlock() {
+  return `<section class="home-trust"><div class="container"><div class="home-trust-grid"><article><span class="trust-symbol">01</span><strong>Local by design</strong><p>Files are processed on your device, not uploaded to Coobbi.</p></article><article><span class="trust-symbol">02</span><strong>Focused, not bloated</strong><p>Each tool does one technical job with clear, inspectable results.</p></article><article><span class="trust-symbol">03</span><strong>Safe static analysis</strong><p>Executables and libraries are inspected, never run or loaded.</p></article></div></div></section>`;
+}
+
+function homeAppsBlock(apps) {
+  const appIds = ["jre4android", "jarinspector-ios", "sb3-game-player", "dll-exe-viewer"];
+  const selected = appIds.map((id) => apps.find((app) => app.id === id)).filter(Boolean);
+  return `<section class="home-apps" id="mobile-apps"><div class="container"><div class="home-section-head"><div><span class="home-eyebrow purple">Mobile apps</span><h2>Small apps. Useful superpowers.</h2><p>Focused utilities for unusual files, Java programs and Scratch projects.</p></div><a class="home-text-link purple" href="apps.html">Explore all ${apps.length} apps →</a></div><div class="home-app-grid">${selected.map((app, index) => `<article class="home-app-card tone-${index + 1}"><div class="home-app-card-top"><img class="app-icon" src="${esc(relativeIcon(app))}" alt="${esc(app.name)} icon"><span>${esc(platform(app))}</span></div><h3>${esc(app.name)}</h3><p>${esc(app.shortDescription)}</p><div class="home-app-actions"><a href="${app.slug}/index.html">Learn more</a><a class="store" href="${storeUrl(app)}">${esc(storeName(app))}</a></div></article>`).join("")}</div></div></section>`;
+}
+
+function homeGuidesBlock() {
+  const guides = [
+    ["jre4android/run-jar-files-on-android.html", "Java on Android", "How to Run JAR Files on Android", "Launch compatible Java apps with a dedicated Android runtime."],
+    ["jar-file-opener/view-manifest-mf.html", "JAR inspection", "How to View MANIFEST.MF", "Find Main-Class, version and package metadata inside a JAR."],
+    ["sb3-game-player/open-sb3-files-on-iphone-ipad.html", "Scratch projects", "Open SB3 Files on iPhone & iPad", "Import and play Scratch-compatible projects locally on iOS."]
+  ];
+  return `<section class="container home-guides" id="guides"><div class="home-section-head"><div><span class="home-eyebrow">Guides</span><h2>Practical answers for uncommon files</h2></div><a class="home-text-link" href="tutorials.html">Browse all guides →</a></div><div class="home-guide-grid">${guides.map(([href, label, title, description]) => `<a class="home-guide" href="${href}"><span>${label}</span><h3>${title}</h3><p>${description}</p><b>Read guide →</b></a>`).join("")}</div></section>`;
 }
 
 function tutorialBlock(depth = 0) {
