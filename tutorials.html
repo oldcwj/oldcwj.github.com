@@ -3,38 +3,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Coobbi Tutorials - SB3, File and Java Guides</title>
+  <title>Android File, JAR and SB3 Tutorials | Coobbi</title>
   <link rel="icon" type="image/png" href="assets/icons/coobbi.png">
-  <meta name="description" content="Learn how to open Scratch SB3 files on iPhone, iPad and Android, run JAR files, inspect archives and work with developer file formats.">
+  <meta name="description" content="Step-by-step Android guides for opening and inspecting JAR, CLASS, OBB, DAT and SO files, running Java apps, and playing Scratch SB3 projects.">
   <link rel="canonical" href="https://coobbi.com/tutorials.html">
   <link rel="stylesheet" href="assets/style.css">
-  <meta property="og:title" content="Coobbi Tutorials - Mobile File and Java Guides">
-  <meta property="og:description" content="Step-by-step SB3, Android file and Java guides.">
+  <meta property="og:title" content="Android File, JAR and SB3 Tutorials | Coobbi">
+  <meta property="og:description" content="Practical guides for Java archives, Android file formats and Scratch SB3 projects.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://coobbi.com/tutorials.html">
   <meta property="og:image" content="https://coobbi.com/assets/icons/coobbi.png">
   <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Coobbi Android File, JAR and SB3 Tutorials","description":"Step-by-step guides for Java archives, Android file formats and Scratch SB3 projects.","url":"https://coobbi.com/tutorials.html","mainEntity":{"@type":"ItemList","name":"Featured JAR file guides","numberOfItems":4,"itemListOrder":"https://schema.org/ItemListOrderAscending","itemListElement":[{"@type":"ListItem","position":1,"url":"https://coobbi.com/jar-file-opener/open-jar-files-on-android.html","name":"How to Open JAR Files on Android"},{"@type":"ListItem","position":2,"url":"https://coobbi.com/jar-file-opener/view-manifest-mf.html","name":"How to View MANIFEST.MF"},{"@type":"ListItem","position":3,"url":"https://coobbi.com/jar-file-opener/extract-jar-files.html","name":"How to Extract JAR Files on Android"},{"@type":"ListItem","position":4,"url":"https://coobbi.com/jar-file-opener/decompile-class-files.html","name":"How to Decompile CLASS Files on Android"}]}}</script>
 </head>
-<body>
+<body class="tutorials-page">
   <header class="site-header"><div class="nav"><a class="brand" href="index.html"><img class="site-logo" src="assets/icons/coobbi.png" alt="Coobbi logo"><span>Coobbi</span></a><div class="nav-links"><a href="index.html">Home</a><a href="apps.html">Apps</a><a class="active" href="tutorials.html">Tutorials</a><a href="jre4android/index.html">Jre4Android</a><a href="jar-file-opener/index.html">Jar File Opener</a><a href="contact.html">Contact</a></div></div></header>
-  <section class="page-hero"><div class="container"><h1>Mobile File and Java Tutorials</h1><p>Step-by-step guides for opening SB3 projects, working with Android files and running Java apps.</p></div></section>
-  <main>
-    <section class="container"><div class="section-head"><div><h2>SB3 project guides</h2><p>Open and play Scratch-compatible .sb3 project files on mobile devices.</p></div></div><div class="grid tutorials">
-      <a class="card tutorial-card" href="sb3-game-player/open-sb3-files-on-iphone-ipad.html"><strong>Open Scratch SB3 Files on iPhone &amp; iPad</strong>Import and play an .sb3 project on iOS or iPadOS.</a>
-      <a class="card tutorial-card" href="sb3-file-opener/open-sb3-files-on-android.html"><strong>Open Scratch SB3 Files on Android</strong>Import and play an .sb3 project on an Android phone or tablet.</a>
+  <section class="page-hero tutorials-hero"><div class="container"><span class="tutorials-kicker">Practical, focused, step by step</span><h1>Android File and Java Tutorials</h1><p>Learn how to inspect JAR archives, run compatible Java apps, understand developer file formats and play Scratch SB3 projects on mobile devices.</p><nav class="tutorial-jumps" aria-label="Tutorial categories"><a href="#jar-guides">JAR inspection</a><a href="#java-guides">Java runtime</a><a href="#file-guides">File formats</a><a href="#sb3-guides">SB3 projects</a></nav></div></section>
+  <main class="tutorials-hub">
+    <section class="tutorial-feature" id="jar-guides"><div class="container"><div class="tutorial-feature-head"><div><span>Featured learning path</span><h2>Understand a JAR file from the outside in</h2><p>Begin by opening the archive, then inspect its manifest, extract what you need and analyze supported CLASS bytecode.</p></div><a href="jar-file-opener/index.html">Jar File Opener overview →</a></div><div class="tutorial-path-grid"><a href="jar-file-opener/open-jar-files-on-android.html"><small>01 · Start here</small><strong>Open JAR files on Android</strong><p>Browse folders, identify entries and learn why opening is different from running.</p></a><a href="jar-file-opener/view-manifest-mf.html"><small>02 · Read metadata</small><strong>View MANIFEST.MF</strong><p>Understand Main-Class, Class-Path, versions and common formatting problems.</p></a><a href="jar-file-opener/extract-jar-files.html"><small>03 · Save resources</small><strong>Extract JAR files</strong><p>Extract selected entries or a complete archive while avoiding overwrite issues.</p></a><a href="jar-file-opener/decompile-class-files.html"><small>04 · Analyze code</small><strong>Decompile CLASS files</strong><p>Compare source-like output, bytecode disassembly, metadata and raw hex.</p></a></div></div></section>
+
+    <section class="container tutorial-category" id="java-guides"><div class="section-head"><div><span class="tutorial-category-label">Java on Android</span><h2>Java runtime guides</h2><p>Run compatible Java applications and understand the differences between JAR, CLASS, Swing and J2ME workflows.</p></div><a class="tutorial-category-link" href="jre4android/index.html">Explore Jre4Android →</a></div><div class="grid tutorials tutorial-card-grid">
+      <a class="card tutorial-card" href="jre4android/run-jar-files-on-android.html"><span>JAR execution</span><strong>How to Run JAR Files on Android</strong>Use Jre4Android to run compatible Java JAR applications.</a>
+      <a class="card tutorial-card" href="jre4android/java-swing-on-android.html"><span>Desktop UI</span><strong>Run Java Swing Apps on Android</strong>Launch compatible Swing GUI apps with touch, zoom and virtual mouse controls.</a>
+      <a class="card tutorial-card" href="jre4android/run-class-files-on-android.html"><span>Compiled classes</span><strong>How to Run .class Files on Android</strong>Launch an individual compiled Java CLASS with the correct package and dependencies.</a>
+      <a class="card tutorial-card" href="jre4android/j2me-emulator-android.html"><span>Classic mobile Java</span><strong>J2ME Emulator for Android</strong>Run compatible Java ME applications and games on Android.</a>
     </div></section>
-    <section class="container"><div class="section-head"><div><h2>Android file and Java guides</h2><p>Open archives, run Java programs and inspect specialized file formats.</p></div></div><div class="grid tutorials">
-      <a class="card tutorial-card" href="jre4android/run-jar-files-on-android.html"><strong>How to Run JAR Files on Android</strong>Use Jre4Android to run compatible Java JAR apps directly on Android.</a>
-      <a class="card tutorial-card" href="jre4android/java-swing-on-android.html"><strong>Run Java Swing Apps on Android</strong>Launch desktop-style Java Swing GUI apps with touch, zoom and virtual mouse controls.</a>
-      <a class="card tutorial-card" href="jre4android/run-class-files-on-android.html"><strong>How to Run .class Files on Android</strong>Run compiled Java CLASS files from your Android device.</a>
-      <a class="card tutorial-card" href="jre4android/j2me-emulator-android.html"><strong>J2ME Emulator for Android</strong>Run classic Java ME apps and games on Android.</a>
-      <a class="card tutorial-card" href="jar-file-opener/open-jar-files-on-android.html"><strong>How to Open JAR Files on Android</strong>Open, browse and inspect Java JAR archives on Android.</a>
-      <a class="card tutorial-card" href="jar-file-opener/view-manifest-mf.html"><strong>How to View MANIFEST.MF</strong>Check Main-Class, Manifest-Version and other JAR metadata.</a>
-      <a class="card tutorial-card" href="jar-file-opener/decompile-class-files.html"><strong>How to Decompile CLASS Files</strong>Inspect and decompile supported Java bytecode on Android.</a>
-      <a class="card tutorial-card" href="jar-file-opener/extract-jar-files.html"><strong>How to Extract JAR Files on Android</strong>Extract resources and files from Java JAR archives.</a>
-      <a class="card tutorial-card" href="so-file-viewer/check-android-16kb-page-size.html"><strong>Check Android 16KB Page Size Support</strong>Inspect .so files and verify possible Android 16KB compatibility issues.</a>
-      <a class="card tutorial-card" href="obb-file-opener/open-obb-files-on-android.html"><strong>How to Open OBB Files on Android</strong>Open, browse and extract Android OBB expansion files.</a>
-      <a class="card tutorial-card" href="dat-file-opener/open-dat-files-on-android.html"><strong>How to Open DAT Files on Android</strong>Open, view and extract DAT files on Android.</a>
+
+    <section class="container tutorial-category" id="file-guides"><div class="section-head"><div><span class="tutorial-category-label">Developer files</span><h2>Android file format guides</h2><p>Inspect specialized files, recognize their structure and choose the correct viewer before extracting or executing anything.</p></div><a class="tutorial-category-link" href="apps.html">View related apps →</a></div><div class="grid tutorials tutorial-card-grid">
+      <a class="card tutorial-card" href="so-file-viewer/check-android-16kb-page-size.html"><span>Native library</span><strong>Check Android 16KB Page Size Support</strong>Inspect ELF information and identify possible Android 16KB compatibility issues.</a>
+      <a class="card tutorial-card" href="obb-file-opener/open-obb-files-on-android.html"><span>Android expansion file</span><strong>How to Open OBB Files on Android</strong>Browse and extract resources from Android OBB packages.</a>
+      <a class="card tutorial-card" href="dat-file-opener/open-dat-files-on-android.html"><span>Generic data file</span><strong>How to Open DAT Files on Android</strong>Identify, view and extract supported DAT file content.</a>
+      <a class="card tutorial-card" href="file-inspector/index.html"><span>Unknown file</span><strong>Identify a File by Its Contents</strong>Inspect file signatures, hashes, strings and metadata directly in your browser.</a>
+    </div></section>
+
+    <section class="container tutorial-category" id="sb3-guides"><div class="section-head"><div><span class="tutorial-category-label">Scratch projects</span><h2>SB3 project guides</h2><p>Import and play Scratch-compatible <code>.sb3</code> project files on iPhone, iPad and Android devices.</p></div></div><div class="grid tutorials tutorial-card-grid two-up">
+      <a class="card tutorial-card" href="sb3-game-player/open-sb3-files-on-iphone-ipad.html"><span>iPhone &amp; iPad</span><strong>Open Scratch SB3 Files on iOS</strong>Import and play an SB3 project on iOS or iPadOS.</a>
+      <a class="card tutorial-card" href="sb3-file-opener/open-sb3-files-on-android.html"><span>Android</span><strong>Open Scratch SB3 Files on Android</strong>Import and play an SB3 project on an Android phone or tablet.</a>
     </div></section>
   </main>
   <footer class="footer"><div class="footer-inner"><div>© Coobbi. Independent mobile apps and utilities.</div><div><a href="index.html">Home</a><a href="apps.html">Apps</a><a href="tutorials.html">Tutorials</a><a href="contact.html">Contact</a><a href="privacy.html">Website Privacy</a></div></div></footer>
