@@ -36,6 +36,10 @@ function renderStrings(bytes) {
 function renderRoute(detection) {
   const panel = document.querySelector("#specialized-route");
   panel.hidden = true;
+  for (const promotion of document.querySelectorAll("[data-promo-formats]")) {
+    const formats = promotion.dataset.promoFormats.split(/\s+/);
+    promotion.hidden = !formats.includes(detection.id);
+  }
   if (detection.id === "jar") {
     panel.innerHTML = `<div><strong>JAR file detected</strong><p>Use the dedicated JAR Inspector to browse archive contents and MANIFEST.MF.</p></div><a class="btn blue" href="https://jarfileopener.com/">Open JAR Inspector →</a>`;
     panel.hidden = false;
