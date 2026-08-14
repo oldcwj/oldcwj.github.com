@@ -11,6 +11,7 @@ const root = outputFlag >= 0 && process.argv[outputFlag + 1]
 const appsData = readJson("data/apps.json");
 const playCache = readJson("data/play-cache.json");
 const today = new Date().toISOString().slice(0, 10);
+const adsenseAccount = "ca-pub-8473144940140136";
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(path.join(sourceRoot, file), "utf8"));
@@ -83,13 +84,13 @@ function nav(active, depth = 0) {
 
 function footer(depth = 0) {
   const prefix = "../".repeat(depth);
-  return `<footer class="footer"><div class="footer-inner"><div>© Coobbi. Independent mobile apps and utilities.</div><div><a href="${prefix}index.html">Home</a><a href="${prefix}apps.html">Apps</a><a href="${prefix}tutorials.html">Tutorials</a><a href="${prefix}contact.html">Contact</a></div></div></footer>`;
+  return `<footer class="footer"><div class="footer-inner"><div>© Coobbi. Independent mobile apps and utilities.</div><div><a href="${prefix}index.html">Home</a><a href="${prefix}apps.html">Apps</a><a href="${prefix}tutorials.html">Tutorials</a><a href="${prefix}contact.html">Contact</a><a href="${prefix}privacy.html">Website Privacy</a></div></div></footer>`;
 }
 
 function head({ title, description, canonical, image, depth = 0, structuredData = [] }) {
   const prefix = "../".repeat(depth);
   const tags = structuredData.map(jsonLd).join("");
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><link rel="icon" type="image/svg+xml" href="${prefix}assets/favicon.svg"><meta name="description" content="${esc(description)}"><link rel="canonical" href="${canonical}"><link rel="stylesheet" href="${prefix}assets/style.css">
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><link rel="icon" type="image/svg+xml" href="${prefix}assets/favicon.svg"><meta name="description" content="${esc(description)}"><meta name="google-adsense-account" content="${adsenseAccount}"><link rel="canonical" href="${canonical}"><link rel="stylesheet" href="${prefix}assets/style.css">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:type" content="website">
@@ -237,8 +238,14 @@ function extraSection(section) {
   return `<section class="card"${section.id ? ` id="${esc(section.id)}"` : ""}><h2>${esc(section.title)}</h2><p>${esc(section.body)}</p>${section.link ? `<p><a href="${esc(section.link.href)}">${esc(section.link.text)}</a></p>` : ""}</section>`;
 }
 
+function privacyPage() {
+  const title = "Website Privacy Policy - Coobbi";
+  const description = "Privacy information for the Coobbi website, browser tools and Google AdSense advertising.";
+  return `${head({ title, description, canonical: `${appsData.site.url}/privacy.html`, image: "assets/icons/coobbi.svg" })}<body>${nav("privacy")}<section class="page-hero"><div class="container"><h1>Website Privacy Policy</h1><p>Last updated: August 14, 2026</p></div></section><main class="container app-detail"><section class="card"><h2>Scope</h2><p>This policy applies to the Coobbi website at coobbi.com, including its informational pages and browser-based file tools. Coobbi mobile apps have separate privacy policies linked below.</p></section><section class="card"><h2>Browser-Based File Tools</h2><p>Files selected in Coobbi browser tools are processed locally in your browser. Coobbi does not receive or upload the file contents, file names, calculated hashes, extracted strings or analysis results.</p></section><section class="card"><h2>Information We May Process</h2><p>The website does not require an account. Our hosting and security providers may automatically process limited technical information such as IP address, browser type, requested pages, timestamps, referring pages and diagnostic data to deliver and protect the website.</p><p>If you contact Coobbi by email, we receive the email address, message and any information you choose to provide. We use it to respond to your request.</p></section><section class="card"><h2>Advertising and Cookies</h2><p>Coobbi may use Google AdSense to display advertising. Third-party vendors, including Google, may use cookies, web beacons, IP addresses or similar technologies to serve, personalize and measure ads. Google's advertising cookies may enable Google and its partners to serve ads based on visits to this website and other websites.</p><p>Learn how Google uses information from partner sites on <a href="https://policies.google.com/technologies/partner-sites">Google's partner sites policy page</a>. You can manage personalized advertising in <a href="https://adssettings.google.com/">Google Ads Settings</a> or review industry opt-out choices at <a href="https://www.aboutads.info/choices/">AboutAds</a>.</p></section><section class="card"><h2>Consent and Privacy Choices</h2><p>Where required, the website displays a consent message before using advertising cookies or processing personal data for personalized advertising. Visitors can consent, decline or manage available choices through that message. Browser settings can also be used to block or delete cookies, although some features may work differently.</p></section><section class="card"><h2>External Services and Links</h2><p>The website links to third-party services such as Google Play, the Apple App Store and Google services. Those services process information under their own privacy policies. Coobbi is not responsible for the privacy practices of external websites.</p></section><section class="card"><h2>Data Retention and Security</h2><p>Coobbi keeps information submitted by email only as long as reasonably necessary to respond, maintain support records and meet applicable obligations. We use reasonable safeguards, but no internet transmission or storage system can be guaranteed completely secure.</p></section><section class="card"><h2>Children's Privacy</h2><p>The website is not designed to collect personal information from children. If you believe a child has provided personal information to Coobbi, contact us so we can review and remove it where appropriate.</p></section><section class="card"><h2>Mobile App Policies</h2><p>This website policy does not replace the policies used by Coobbi mobile apps.</p><ul><li><a href="jarinspector-ios/privacy.html">JarInspector Privacy Policy</a> and <a href="jarinspector-ios/support.html">Support</a></li><li><a href="sb3-game-player/privacy.html">SB3 Game Player Privacy Policy</a> and <a href="sb3-game-player/support.html">Support</a></li></ul></section><section class="card"><h2>Changes to This Policy</h2><p>We may update this policy when the website, advertising services or legal requirements change. The updated version will be posted on this page with a revised date.</p></section><section class="card"><h2>Contact</h2><p>Questions about this website privacy policy can be sent to <a href="mailto:imzine.com@gmail.com">imzine.com@gmail.com</a>.</p></section></main>${footer()}</body></html>`;
+}
+
 function sitemap() {
-  const staticPages = ["", "apps.html", "tutorials.html", "contact.html", "file-inspector/", "hex-viewer/", "strings-viewer/", "file-hash-calculator/", "exe-inspector/", "dll-inspector/"];
+  const staticPages = ["", "apps.html", "tutorials.html", "contact.html", "privacy.html", "file-inspector/", "hex-viewer/", "strings-viewer/", "file-hash-calculator/", "exe-inspector/", "dll-inspector/"];
   const appPages = appsData.apps.map((app) => `${app.slug}/`);
   const tutorialPages = [
     "jre4android/run-jar-files-on-android.html",
@@ -262,9 +269,10 @@ function sitemap() {
 
 write("index.html", homePage());
 write("apps.html", appsPage());
+write("privacy.html", privacyPage());
 for (const app of appsData.apps) {
   write(`${app.slug}/index.html`, appPage(app));
 }
 write("sitemap.xml", sitemap());
 
-console.log(`Built ${appsData.apps.length} app pages, index.html, apps.html and sitemap.xml.`);
+console.log(`Built ${appsData.apps.length} app pages, index.html, apps.html, privacy.html and sitemap.xml.`);

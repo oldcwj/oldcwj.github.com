@@ -6,6 +6,13 @@ const path = require("path");
 const root = path.resolve(__dirname, "..");
 const errors = [];
 const ignoredDirectories = new Set([".git", "node_modules"]);
+const immutableAppDocuments = new Set([
+  "jarinspector-ios/privacy.html",
+  "jarinspector-ios/support.html",
+  "sb3-game-player/privacy.html",
+  "sb3-game-player/support.html"
+]);
+const websitePrivacyPath = path.join(root, "privacy.html");
 
 function walk(directory, extension, found = []) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
@@ -38,6 +45,15 @@ for (const absolute of htmlFiles) {
   const duplicates = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
   record(!duplicates.length, `Duplicate id in ${relative}: ${duplicates.join(", ")}`);
 
+  const footer = content.match(/<footer class=["']footer["']>[\s\S]*?<\/footer>/i)?.[0];
+  if (footer && !immutableAppDocuments.has(relative)) {
+    const linksToWebsitePrivacy = [...footer.matchAll(/href=["']([^"']+)["']/gi)].some((match) => {
+      const target = localTarget(absolute, match[1]);
+      return target && !target.outside && target.resolved === websitePrivacyPath;
+    });
+    record(linksToWebsitePrivacy, `Footer must link to the website privacy policy in ${relative}`);
+  }
+
   for (const match of content.matchAll(/\s(?:href|src)=["']([^"']+)["']/gi)) {
     let target;
     try { target = localTarget(absolute, match[1]); }
@@ -50,6 +66,17 @@ for (const absolute of htmlFiles) {
     record(fs.existsSync(resolved), `Broken local reference in ${relative}: ${match[1]}`);
   }
 }
+
+record(fs.existsSync(websitePrivacyPath), "Missing website privacy policy: privacy.html");
+if (fs.existsSync(websitePrivacyPath)) {
+  const privacy = fs.readFileSync(websitePrivacyPath, "utf8");
+  record(/Google AdSense/i.test(privacy), "Website privacy policy must disclose Google AdSense");
+  record(/cookies/i.test(privacy), "Website privacy policy must disclose cookies");
+  record(/processed locally in your browser/i.test(privacy), "Website privacy policy must describe local file processing");
+}
+
+const home = fs.readFileSync(path.join(root, "index.html"), "utf8");
+record(/<meta\s+name=["']google-adsense-account["']\s+content=["']ca-pub-8473144940140136["']/i.test(home), "Homepage must retain the AdSense ownership meta tag");
 
 for (const absolute of walk(root, ".css")) {
   const relative = path.relative(root, absolute);

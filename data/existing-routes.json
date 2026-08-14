@@ -4,6 +4,7 @@
     {"file":"apps.html","canonical":"https://coobbi.com/apps.html"},
     {"file":"tutorials.html","canonical":"https://coobbi.com/tutorials.html"},
     {"file":"contact.html","canonical":"https://coobbi.com/contact.html"},
+    {"file":"privacy.html","canonical":"https://coobbi.com/privacy.html"},
     {"file":"jre4android/index.html","canonical":"https://coobbi.com/jre4android/"},
     {"file":"jre4android-pro/index.html","canonical":"https://coobbi.com/jre4android-pro/"},
     {"file":"jar-file-opener/index.html","canonical":"https://coobbi.com/jar-file-opener/"},
@@ -48,5 +49,5 @@
     {"file":"exe-inspector/index.html","canonical":"https://coobbi.com/exe-inspector/","complete":true},
     {"file":"dll-inspector/index.html","canonical":"https://coobbi.com/dll-inspector/","complete":true}
   ],
-  "requiredFiles": ["robots.txt", "sitemap.xml", "app-ads.txt", "CNAME"]
+  "requiredFiles": ["robots.txt", "sitemap.xml", "ads.txt", "app-ads.txt", "CNAME"]
 }
