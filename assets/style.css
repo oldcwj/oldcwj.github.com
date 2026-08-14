@@ -212,3 +212,65 @@ body {
 @media(max-width:980px){.home-header .nav-links a:not(.nav-cta){display:none}.home-hero-inner{grid-template-columns:1fr;gap:44px}.inspector-preview{max-width:700px}.home-app-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-tools-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-tool-card.primary{grid-column:span 2}}
 @media(max-width:640px){.home-header .nav{min-height:64px;flex-direction:row;align-items:center;padding:10px 16px}.home-header .brand{font-size:20px}.home-header .brand img.site-logo{width:36px;height:36px}.home-header .nav-links{width:auto}.home-header .nav-links .nav-cta{margin:0;padding:9px 12px;font-size:12px}.home-hero-inner{min-height:0;padding:43px 16px 44px;grid-template-columns:minmax(0,1fr);gap:28px}.home-hero-copy h1{font-size:clamp(43px,13vw,57px);margin-top:15px}.home-hero-copy>p{font-size:17px}.home-actions{display:grid;grid-template-columns:1fr;margin-top:24px}.home-button{width:100%}.home-assurance{gap:11px 16px;margin-top:20px}.inspector-preview{border-radius:18px;transform:none}.preview-body{padding:16px 18px}.preview-file{grid-template-columns:auto 1fr;padding-bottom:14px}.preview-file-mark{width:40px;height:40px}.preview-local{grid-column:1/-1;justify-self:start}.preview-result{margin-top:12px}.preview-result>div{grid-template-columns:82px minmax(0,1fr);font-size:11px}.preview-result>div:nth-child(n+2){display:none}.preview-status{margin-top:12px;padding:10px 12px}.web-tools-home,.home-guides{padding-top:56px;padding-bottom:58px}.home-section-head{display:block}.home-section-head .home-text-link{display:inline-block;margin-top:16px}.home-tools-grid,.home-app-grid,.home-trust-grid,.home-guide-grid{grid-template-columns:1fr}.home-tool-card.primary{grid-column:auto}.home-tool-card{min-height:205px}.home-trust-grid article,.home-trust-grid article:first-child,.home-trust-grid article:last-child{padding:24px 0;border-right:0;border-bottom:1px solid #26344b}.home-trust-grid article:last-child{border-bottom:0}.home-apps{padding:57px 0 62px}.home-app-card,.home-app-card:nth-child(2),.home-app-card:nth-child(4),.home-app-card:hover,.home-app-card:nth-child(2):hover,.home-app-card:nth-child(4):hover{transform:none}.home-app-card{min-height:250px}.home-guide-grid{border-top:1px solid #dce4ef}.home-guide,.home-guide+.home-guide,.home-guide:last-child{padding:23px 0;border-right:0;border-bottom:1px solid #dce4ef}.home-guide:last-child{border-bottom:0}.home-final{padding-bottom:58px}.home-final .cta{padding:28px}}
 @media(prefers-reduced-motion:reduce){.home-button,.home-tool-card,.home-app-card{transition:none!important}}
+
+/* Shared visual language for public pages (protected iOS policy/support pages excluded by structure) */
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .site-header{background:rgba(255,255,255,.92);border-color:#e2e8f0;box-shadow:0 1px 0 rgba(15,23,42,.03)}
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .nav{max-width:1240px;min-height:70px}
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .nav-links{gap:4px}
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .nav-links a{padding:8px 11px;color:#526177;font-size:13px}
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .nav-links a:hover,
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .nav-links a.active{background:#eff6ff;color:#1d4ed8}
+
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .page-hero{position:relative;overflow:hidden;background:radial-gradient(circle at 12% 12%,rgba(99,102,241,.15),transparent 31%),radial-gradient(circle at 88% 10%,rgba(34,211,238,.16),transparent 29%),#f8fafc;color:#0b1220;border-bottom:1px solid #e2e8f0}
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .page-hero::after{content:"";position:absolute;width:260px;height:260px;right:-100px;bottom:-180px;border-radius:50%;background:rgba(37,99,235,.08);pointer-events:none}
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .page-hero .container{position:relative;z-index:1;max-width:1240px;padding-top:62px;padding-bottom:58px}
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .page-hero h1{max-width:930px;margin-bottom:15px;font-size:clamp(39px,5vw,61px);line-height:1.01;letter-spacing:-.055em}
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .page-hero p{max-width:760px;color:#526177;font-size:18px;line-height:1.65;opacity:1}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .page-hero .hero-page-icon{width:76px;height:76px;margin-bottom:22px;border:1px solid rgba(255,255,255,.8);box-shadow:0 18px 38px rgba(37,99,235,.16)}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-hero .app-meta span{background:#fff;border:1px solid #e2e8f0;color:#334155}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .page-hero .btn.primary{background:#2563eb;color:#fff;box-shadow:0 14px 32px rgba(37,99,235,.22)}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .page-hero .btn.secondary{background:#fff;color:#1e293b;border-color:#d7dfeb}
+
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail{max-width:1080px;padding-top:52px;padding-bottom:72px;gap:18px}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail>.card{padding:28px 30px;border-color:#e2e8f0;border-radius:18px;box-shadow:0 12px 34px rgba(15,23,42,.055)}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail>.card h2{margin-top:0;margin-bottom:12px;color:#0f172a;font-size:26px;letter-spacing:-.03em}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail>.card p{max-width:850px;line-height:1.75}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail>.card ul{margin:14px 0 0;padding-left:21px;columns:2;column-gap:42px}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail>.card li{break-inside:avoid;margin-bottom:8px;color:#475569}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail>.card:last-child{background:linear-gradient(145deg,#0b1220,#13213b);color:#fff;border-color:#1e293b}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail>.card:last-child h2{color:#fff}
+:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail>.card:last-child p{color:#94a3b8}
+
+body:has(.content) .content{max-width:1160px;padding-top:52px;padding-bottom:72px;grid-template-columns:minmax(0,1fr) 280px;gap:28px}
+body:has(.content) .article section{padding:29px 31px;margin-bottom:18px;border-color:#e2e8f0;border-radius:18px;box-shadow:0 12px 34px rgba(15,23,42,.05)}
+body:has(.content) .article h2{color:#0f172a;font-size:27px;letter-spacing:-.03em}
+body:has(.content) .article p,body:has(.content) .article li{color:#475569}
+body:has(.content) .sidebar{top:92px}
+body:has(.content) .sidebar .card{padding:20px;border-color:#dbe5f0;border-radius:16px;box-shadow:0 12px 30px rgba(15,23,42,.05)}
+body:has(.content) .sidebar a{color:#334155;font-size:14px;border-bottom:1px solid #edf2f7}
+body:has(.content) .sidebar a:last-child{border-bottom:0}
+
+body:has(.tool-page) .page-hero .container{padding-top:48px;padding-bottom:55px}
+body:has(.tool-page) .page-hero h1{font-size:clamp(38px,4.4vw,55px)}
+body:has(.tool-page) .tool-stage{margin-top:-26px}
+body:has(.tool-page) .tool-shell-card{border-color:#dce5f1;border-radius:19px;box-shadow:0 26px 60px rgba(15,23,42,.12)}
+body:has(.tool-page) .tool-shell-top{background:#f8fafc;padding:20px 24px}
+body:has(.tool-page) .drop-shell{border-color:#a7c8f8;border-radius:18px;background:linear-gradient(180deg,#f7faff,#fff)}
+body:has(.tool-page) .result-section{border-color:#e2e8f0;border-radius:18px;box-shadow:0 12px 34px rgba(15,23,42,.05)}
+
+body:has(.sb3-platforms) main,body:has(.category) main{background:linear-gradient(180deg,#fff,#f8fafc 36%,#fff)}
+body:has(.sb3-platforms) main>.container,body:has(.category) main>.container{max-width:1240px}
+body:has(.sb3-platforms) .app-card,body:has(.category) .card{border-color:#e2e8f0;border-radius:18px;box-shadow:0 12px 34px rgba(15,23,42,.05)}
+body:has(.sb3-platforms) .app-card:hover,body:has(.category) .card:hover{border-color:#93c5fd;box-shadow:0 18px 42px rgba(37,99,235,.1)}
+body:has(.sb3-platforms) .section-head h2,body:has(.category) .category h3{color:#0f172a;letter-spacing:-.035em}
+
+body:has(>main.container:not(.app-detail))>main.container{max-width:980px;padding-top:52px;padding-bottom:72px}
+body:has(>main.container:not(.app-detail))>main.container>.card{padding:29px 31px;border-color:#e2e8f0;border-radius:18px;box-shadow:0 12px 34px rgba(15,23,42,.05)}
+body:has(>main.container:not(.app-detail))>main.container>.card h2{margin-top:0;color:#0f172a;letter-spacing:-.03em}
+
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .footer{background:#0b1220;color:#94a3b8;border-top-color:#1e293b}
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .footer-inner{max-width:1240px}
+:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .footer a{color:#cbd5e1}
+
+@media(max-width:920px){:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail>.card ul{columns:1}body:has(.content) .content{grid-template-columns:1fr}}
+@media(max-width:640px){:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .nav{min-height:64px;padding:10px 16px;gap:12px}:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .nav-links{width:100%;overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;padding-bottom:2px;scrollbar-width:none}:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .nav-links::-webkit-scrollbar{display:none}:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .nav-links a{flex:none}:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .page-hero .container{padding-top:45px;padding-bottom:46px}:is(body:has(.app-hero),body:has(.hero-page-icon),body:has(.content),body:has(.tool-page),body:has(.sb3-platforms),body:has(.category),body:has(>main.container:not(.app-detail))) .page-hero h1{font-size:clamp(37px,12vw,50px)}:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail{padding-top:36px;padding-bottom:54px}:is(body:has(.app-hero),body:has(.hero-page-icon)) .app-detail>.card,body:has(.content) .article section,body:has(>main.container:not(.app-detail))>main.container>.card{padding:22px 20px}body:has(.content) .content{padding-top:36px;padding-bottom:54px}body:has(.tool-page) .tool-stage{margin-top:-18px}}
