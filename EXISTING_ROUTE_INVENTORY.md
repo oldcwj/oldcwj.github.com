@@ -101,8 +101,6 @@ All product routes below are generated from `data/apps.json`. Their URLs are tre
 | `https://coobbi.com/so-file-viewer/` | SO File Viewer product page | Google Play: `com.coobbi.sofileopener` | HIGH | NO | Preserve URL and product purpose. |
 | `https://coobbi.com/sb3-file-opener/` | SB3 File Opener Android product page | Google Play: `com.coobbi.sb3fileopener` | HIGH | NO | Preserve URL and product purpose. |
 | `https://coobbi.com/network-firewall/` | Network Firewall product page | Google Play: `com.coobbi.firewall` | HIGH | NO | Preserve URL and product purpose. |
-| `https://coobbi.com/mcpaper/` | MCPaper product page | Google Play: `com.coobbi.papermc` | HIGH | NO | Preserve URL and product purpose. |
-| `https://coobbi.com/minecraft-rcon-admin/` | Minecraft RCON Admin product page | Google Play: `com.coobbi.rconadmin` | HIGH | NO | Preserve URL and product purpose. |
 | `https://coobbi.com/bluetooth-keyboard-mouse/` | Bluetooth Keyboard Mouse product page | Google Play: `com.coobbi.keyboard` | HIGH | NO | Preserve URL and product purpose. |
 | `https://coobbi.com/sb3-game-player/` | SB3 Game Player iOS product page | App Store ID `6792155835` | HIGH | NO | Preserve with its Privacy and Support links. |
 | `https://coobbi.com/jarinspector-ios/` | JarInspector iOS product page | App Store ID `6792224147` | HIGH | NO | Preserve with its Privacy and Support links. |

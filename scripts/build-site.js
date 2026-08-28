@@ -202,7 +202,6 @@ function groupIntro(group) {
     "Java Tools": "Run Java programs, JAR files, CLASS files and J2ME apps on Android.",
     "File Tools": "Open, inspect and extract specialized Android and Java-related file formats.",
     "Network Tools": "Monitor traffic and control app network access from Android.",
-    "Server Tools": "Run or manage Minecraft Java Edition server workflows on Android.",
     "Utility Tools": "Small Android tools for everyday device control and productivity.",
     "iPhone & iPad Apps": "Open and play specialized project and archive file formats locally on iOS and iPadOS."
   }[group] || `Coobbi apps for ${group.toLowerCase()}.`;

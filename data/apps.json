@@ -199,34 +199,6 @@
       "tutorials": []
     },
     {
-      "id": "mcpaper",
-      "packageName": "com.coobbi.papermc",
-      "name": "Minecraft Server: MCPaper",
-      "category": "Server Tools",
-      "slug": "mcpaper",
-      "featured": false,
-      "title": "Minecraft Server: MCPaper",
-      "shortDescription": "Run and manage Minecraft Java Edition servers on Android.",
-      "seoDescription": "Minecraft Server: MCPaper helps Android users run and manage Minecraft Java Edition servers from a phone or tablet.",
-      "keywords": ["Minecraft server Android", "PaperMC Android", "Minecraft Java server Android"],
-      "features": ["Run Minecraft Java Edition servers", "Manage server files on Android", "Start and stop server instances", "Use PaperMC server builds", "Mobile server management workflow", "Useful for local testing and small servers"],
-      "tutorials": []
-    },
-    {
-      "id": "minecraft-rcon-admin",
-      "packageName": "com.coobbi.rconadmin",
-      "name": "Minecraft RCON Admin",
-      "category": "Server Tools",
-      "slug": "minecraft-rcon-admin",
-      "featured": false,
-      "title": "Minecraft RCON Admin",
-      "shortDescription": "Remote admin tools for Minecraft Java servers.",
-      "seoDescription": "Minecraft RCON Admin helps server owners connect to Minecraft Java Edition servers and run RCON commands from Android.",
-      "keywords": ["Minecraft RCON Android", "Minecraft server admin", "RCON client Android"],
-      "features": ["Connect to Minecraft RCON servers", "Run remote admin commands", "Manage server sessions", "Save server profiles", "Use Android as a server console", "Simple tool for Minecraft admins"],
-      "tutorials": []
-    },
-    {
       "id": "bluetooth-keyboard-mouse",
       "packageName": "com.coobbi.keyboard",
       "name": "Bluetooth Keyboard Mouse",
