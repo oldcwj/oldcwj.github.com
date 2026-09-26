@@ -89,8 +89,7 @@ All product routes below are generated from `data/apps.json`. Their URLs are tre
 
 | URL | Purpose | Store association | Risk | Can change? | Recommended action |
 |---|---|---|---|---|---|
-| `https://coobbi.com/jre4android/` | Jre4Android product page | Google Play: `com.coobbi.jre` | HIGH | NO | Preserve URL and product purpose. |
-| `https://coobbi.com/jre4android-pro/` | Jre4Android Pro product page | Google Play: `com.coobbi.jre.pro` | HIGH | NO | Preserve URL and product purpose. |
+| `https://coobbi.com/jre4android/` | Jre4Android (Jar Runner) product page | Google Play: `com.coobbi.jre` | HIGH | NO | Preserve URL and product purpose. |
 | `https://coobbi.com/jar-file-opener/` | Jar File Opener Android product page | Google Play: `com.coobbi.jarfileopener` | HIGH | NO | Preserve; do not replace it with the new universal Web tool. |
 | `https://coobbi.com/apk-file-opener/` | APK File Opener product page | Google Play: `com.coobbi.apkfileopener` | HIGH | NO | Preserve URL and product purpose. |
 | `https://coobbi.com/dll-exe-viewer/` | DLL/EXE Viewer product page | Google Play: `com.coobbi.dllfileviewer` | HIGH | NO | Preserve; link from future EXE/DLL Web tools rather than repurposing it. |
@@ -100,8 +99,6 @@ All product routes below are generated from `data/apps.json`. Their URLs are tre
 | `https://coobbi.com/obb-file-opener/` | OBB File Opener product page | Google Play: `com.coobbi.obbfileopener` | HIGH | NO | Preserve URL and product purpose. |
 | `https://coobbi.com/so-file-viewer/` | SO File Viewer product page | Google Play: `com.coobbi.sofileopener` | HIGH | NO | Preserve URL and product purpose. |
 | `https://coobbi.com/sb3-file-opener/` | SB3 File Opener Android product page | Google Play: `com.coobbi.sb3fileopener` | HIGH | NO | Preserve URL and product purpose. |
-| `https://coobbi.com/network-firewall/` | Network Firewall product page | Google Play: `com.coobbi.firewall` | HIGH | NO | Preserve URL and product purpose. |
-| `https://coobbi.com/bluetooth-keyboard-mouse/` | Bluetooth Keyboard Mouse product page | Google Play: `com.coobbi.keyboard` | HIGH | NO | Preserve URL and product purpose. |
 | `https://coobbi.com/sb3-game-player/` | SB3 Game Player iOS product page | App Store ID `6792155835` | HIGH | NO | Preserve with its Privacy and Support links. |
 | `https://coobbi.com/jarinspector-ios/` | JarInspector iOS product page | App Store ID `6792224147` | HIGH | NO | Preserve with its Privacy and Support links. |
 

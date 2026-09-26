@@ -9,38 +9,21 @@
     {
       "id": "jre4android",
       "packageName": "com.coobbi.jre",
-      "name": "Jre4Android",
+      "name": "Jre4Android (Jar Runner)",
       "category": "Java Tools",
       "slug": "jre4android",
       "featured": true,
-      "title": "Jre4Android - Java Runtime & J2ME",
+      "title": "Jre4Android (Jar Runner) - Java Runtime & J2ME",
       "shortDescription": "Run JAR files, CLASS files, Java Swing GUI apps and J2ME apps directly on Android.",
       "seoDescription": "A Java runtime tool for Android that helps you run Java JAR files, CLASS files, command-line Java programs, Swing GUI apps and classic J2ME apps.",
       "keywords": ["Java runtime for Android", "run JAR files on Android", "J2ME emulator", "Java Swing Android"],
       "features": ["Run JAR files on Android", "Run .class files", "Java command-line mode", "Java Swing GUI support", "J2ME app support", "Java runtime on Android"],
       "tutorials": [
-        {"title": "How to Run JAR Files on Android", "description": "Use Jre4Android to run compatible Java JAR apps directly on Android.", "href": "run-jar-files-on-android.html"},
+        {"title": "How to Run JAR Files on Android", "description": "Use Jre4Android (Jar Runner) to run compatible Java JAR apps directly on Android.", "href": "run-jar-files-on-android.html"},
         {"title": "Run Java Swing Apps on Android", "description": "Launch desktop-style Java Swing GUI apps with touch, zoom and virtual mouse controls.", "href": "java-swing-on-android.html"},
         {"title": "How to Run .class Files on Android", "description": "Run compiled Java CLASS files from your Android device.", "href": "run-class-files-on-android.html"},
         {"title": "J2ME Emulator for Android", "description": "Run classic Java ME apps and games on Android.", "href": "j2me-emulator-android.html"}
-      ],
-      "extraSections": [
-        {"id": "pro", "title": "Free vs Pro", "body": "The free version is useful for running Java apps on Android. The Pro version adds no ads, custom arguments and Java 25 runtime support.", "link": {"href": "../jre4android-pro/index.html", "text": "Learn about Jre4Android Pro"}}
       ]
-    },
-    {
-      "id": "jre4android-pro",
-      "packageName": "com.coobbi.jre.pro",
-      "name": "Jre4Android Pro",
-      "category": "Java Tools",
-      "slug": "jre4android-pro",
-      "featured": false,
-      "title": "Jre4Android Pro - Java Runtime for Android",
-      "shortDescription": "No ads, custom args support and Java 25 runtime for running Java apps on Android.",
-      "seoDescription": "Jre4Android Pro is the premium Java runtime tool for Android, with no ads, custom arguments and modern Java runtime support.",
-      "keywords": ["Java runtime Android Pro", "run Java apps Android", "Java 25 Android"],
-      "features": ["No ads", "Custom Java arguments", "Java 25 runtime support", "Run JAR and CLASS files", "Run Java Swing apps", "J2ME app support"],
-      "tutorials": []
     },
     {
       "id": "jar-file-opener",
@@ -189,34 +172,6 @@
       "tutorials": [
         {"title": "How to Open SB3 Files on Android", "description": "Import and play a Scratch-compatible .sb3 project on an Android phone or tablet.", "href": "open-sb3-files-on-android.html"}
       ]
-    },
-    {
-      "id": "network-firewall",
-      "packageName": "com.coobbi.firewall",
-      "name": "Network Speed Monitor & Firewall",
-      "category": "Network Tools",
-      "slug": "network-firewall",
-      "featured": true,
-      "title": "Network Speed Monitor & Firewall",
-      "shortDescription": "Monitor internet speed and block unwanted app connections without root.",
-      "seoDescription": "Network Speed Monitor & Firewall helps Android users monitor real-time traffic, track app network usage and block unwanted connections without root.",
-      "keywords": ["network speed monitor Android", "Android firewall no root", "app network monitor"],
-      "features": ["Monitor real-time network speed", "Block unwanted app connections", "No root required", "Track app internet usage", "Improve privacy controls", "Lightweight Android network tool"],
-      "tutorials": []
-    },
-    {
-      "id": "bluetooth-keyboard-mouse",
-      "packageName": "com.coobbi.keyboard",
-      "name": "Bluetooth Keyboard Mouse",
-      "category": "Utility Tools",
-      "slug": "bluetooth-keyboard-mouse",
-      "featured": false,
-      "title": "Bluetooth Keyboard Mouse",
-      "shortDescription": "Use your Android device as a Bluetooth keyboard and mouse.",
-      "seoDescription": "Bluetooth Keyboard Mouse turns an Android device into a Bluetooth keyboard and mouse for controlling nearby computers, tablets and compatible devices.",
-      "keywords": ["Bluetooth keyboard mouse Android", "Android as Bluetooth keyboard", "Android as mouse"],
-      "features": ["Use Android as a Bluetooth keyboard", "Use Android as a Bluetooth mouse", "Control compatible nearby devices", "Useful for tablets and PCs", "Portable input tool", "Simple Bluetooth utility"],
-      "tutorials": []
     },
     {
       "id": "sb3-game-player",

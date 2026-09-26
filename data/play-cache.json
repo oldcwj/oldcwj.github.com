@@ -5,9 +5,6 @@
     "com.coobbi.jre": {
       "icon": "https://play-lh.googleusercontent.com/7G6suBH0jJW0w0My0Kz-w7r__lXyzFOZXjpcWuLzm_v6HGkOK6ANQ7WHyKcYbbwRGXwHaVXRSFDYhScz_e6P%3Dw240-h480"
     },
-    "com.coobbi.jre.pro": {
-      "icon": "https://play-lh.googleusercontent.com/_fiJ1LPrLD4dYhRjZb22wKCxD8TAvx1TyFAtAWjUSNu8JyATziW3Lm_j__sRT27z5-AVIjhh3C4fzHY4xMGs7A%3Dw240-h480"
-    },
     "com.coobbi.jarfileopener": {
       "icon": "https://play-lh.googleusercontent.com/-0kdi2ymrW7F6LaO7tSW1ck2ewH4BqIFSuFgCj2LTLnJYo9VJ5tdQCe7wCXSTh7jOxhvJppPAjE4sgEFq-Ck%3Dw240-h480"
     },
@@ -38,12 +35,6 @@
     },
     "com.coobbi.sofileopener": {
       "icon": "https://play-lh.googleusercontent.com/GVO8WSdf__iEb0crxCyG2zo7V0eNSi-DYjxzSBTvNcGMqv5SWd0lDgqtu_YXJT0iE1qLeryrC-jD315k9ejPOQ%3Dw240-h480"
-    },
-    "com.coobbi.firewall": {
-      "icon": "https://play-lh.googleusercontent.com/MY9KPInJy1AUeQncyUaedK7j6aRmd8B5m_PaYIjI6fdZuWzq7O8c4jDbqXMvq4xOIaWEr2UASjMFuCh9nSv6kjk%3Dw240-h480"
-    },
-    "com.coobbi.keyboard": {
-      "icon": "https://play-lh.googleusercontent.com/7xor8GWku470Sb-CWuytkbcVgNsEOJDvnaKUNsDDchJV6XwI3qnxhBCGE8GjxgTlfBZtdOR1109lpVKxuo0utg%3Dw240-h480"
     }
   }
 }

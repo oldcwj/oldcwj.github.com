@@ -80,7 +80,7 @@ function nav(active, depth = 0) {
     ["Home", "index.html", "home"],
     ["Apps", "apps.html", "apps"],
     ["Tutorials", "tutorials.html", "tutorials"],
-    ["Jre4Android", "jre4android/index.html", "jre4android"],
+    ["Jre4Android (Jar Runner)", "jre4android/index.html", "jre4android"],
     ["Jar File Opener", "jar-file-opener/index.html", "jar-file-opener"],
     ["Contact", "contact.html", "contact"]
   ];
@@ -179,7 +179,7 @@ function tutorialBlock(depth = 0) {
   const tutorials = [
     ["sb3-game-player/open-sb3-files-on-iphone-ipad.html", "Open Scratch SB3 Files on iPhone & iPad", "Import and play an .sb3 project on iOS or iPadOS."],
     ["sb3-file-opener/open-sb3-files-on-android.html", "Open Scratch SB3 Files on Android", "Import and play an .sb3 project on an Android phone or tablet."],
-    ["jre4android/run-jar-files-on-android.html", "How to Run JAR Files on Android", "Use Jre4Android to run compatible Java JAR apps directly on Android."],
+    ["jre4android/run-jar-files-on-android.html", "How to Run JAR Files on Android", "Use Jre4Android (Jar Runner) to run compatible Java JAR apps directly on Android."],
     ["jre4android/java-swing-on-android.html", "Run Java Swing Apps on Android", "Launch desktop-style Java Swing GUI apps with touch, zoom and virtual mouse controls."],
     ["jre4android/run-class-files-on-android.html", "How to Run .class Files on Android", "Run compiled Java CLASS files from your Android device."],
     ["jre4android/j2me-emulator-android.html", "J2ME Emulator for Android", "Run classic Java ME apps and games on Android."],
