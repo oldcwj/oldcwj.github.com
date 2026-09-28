@@ -54,6 +54,14 @@ function storeUrl(app) {
   return `https://play.google.com/store/apps/details?id=${encodeURIComponent(app.packageName)}`;
 }
 
+function storeAvailable(app) {
+  return app.storeAvailable !== false;
+}
+
+function isListed(app) {
+  return app.listed !== false;
+}
+
 function storeName(app) {
   return app.storeName || "Google Play";
 }
@@ -80,7 +88,7 @@ function nav(active, depth = 0) {
     ["Home", "index.html", "home"],
     ["Apps", "apps.html", "apps"],
     ["Tutorials", "tutorials.html", "tutorials"],
-    ["Jre4Android (Jar Runner)", "jre4android/index.html", "jre4android"],
+    ["Jar Runner", "jre4android/index.html", "jre4android"],
     ["Jar File Opener", "jar-file-opener/index.html", "jar-file-opener"],
     ["Contact", "contact.html", "contact"]
   ];
@@ -115,9 +123,14 @@ function appMeta(app) {
   return `<div class="app-meta">${rows.map((row) => `<span>${row}</span>`).join("")}</div>`;
 }
 
+function legacyBrandNote(app) {
+  return app.legacyBrandNote ? `<p class="app-legacy-note">${esc(app.legacyBrandNote)}</p>` : "";
+}
+
 function appCard(app, depth = 0) {
   const prefix = "../".repeat(depth);
-  return `<article class="card app-card"><img class="app-icon" src="${esc(relativeIcon(app, depth))}" alt="${esc(app.name)} icon"><h3>${esc(app.name)}</h3><p>${esc(app.shortDescription)}</p>${appMeta(app)}<div class="card-actions"><a class="card-link" href="${prefix}${app.slug}/index.html">Learn more</a><a class="card-link store" href="${storeUrl(app)}">${esc(storeName(app))}</a></div></article>`;
+  const storeLink = storeAvailable(app) ? `<a class="card-link store" href="${storeUrl(app)}">${esc(storeName(app))}</a>` : "";
+  return `<article class="card app-card"><img class="app-icon" src="${esc(relativeIcon(app, depth))}" alt="${esc(app.name)} icon"><h3>${esc(app.name)}</h3><p>${esc(app.shortDescription)}</p>${legacyBrandNote(app)}${appMeta(app)}<div class="card-actions"><a class="card-link" href="${prefix}${app.slug}/index.html">Learn more</a>${storeLink}</div></article>`;
 }
 
 function sb3Block(depth = 0) {
@@ -161,8 +174,9 @@ function homeTrustBlock() {
 
 function homeAppsBlock(apps) {
   const appIds = ["jre4android", "jarinspector-ios", "sb3-game-player", "dll-exe-viewer"];
-  const selected = appIds.map((id) => apps.find((app) => app.id === id)).filter(Boolean);
-  return `<section class="home-apps" id="mobile-apps"><div class="container"><div class="home-section-head"><div><span class="home-eyebrow purple">Mobile apps</span><h2>Small apps. Useful superpowers.</h2><p>Focused utilities for unusual files, Java programs and Scratch projects.</p></div><a class="home-text-link purple" href="apps.html">Explore all ${apps.length} apps →</a></div><div class="home-app-grid">${selected.map((app, index) => `<article class="home-app-card tone-${index + 1}"><div class="home-app-card-top"><img class="app-icon" src="${esc(relativeIcon(app))}" alt="${esc(app.name)} icon"><span>${esc(platform(app))}</span></div><h3>${esc(app.name)}</h3><p>${esc(app.shortDescription)}</p><div class="home-app-actions"><a href="${app.slug}/index.html">Learn more</a><a class="store" href="${storeUrl(app)}">${esc(storeName(app))}</a></div></article>`).join("")}</div></div></section>`;
+  const publicApps = apps.filter(isListed);
+  const selected = appIds.map((id) => publicApps.find((app) => app.id === id)).filter(Boolean);
+  return `<section class="home-apps" id="mobile-apps"><div class="container"><div class="home-section-head"><div><span class="home-eyebrow purple">Mobile apps</span><h2>Small apps. Useful superpowers.</h2><p>Focused utilities for unusual files, Java programs and Scratch projects.</p></div><a class="home-text-link purple" href="apps.html">Explore all ${publicApps.length} apps →</a></div><div class="home-app-grid">${selected.map((app, index) => `<article class="home-app-card tone-${index + 1}"><div class="home-app-card-top"><img class="app-icon" src="${esc(relativeIcon(app))}" alt="${esc(app.name)} icon"><span>${esc(platform(app))}</span></div><h3>${esc(app.name)}</h3><p>${esc(app.shortDescription)}</p>${legacyBrandNote(app)}<div class="home-app-actions"><a href="${app.slug}/index.html">Learn more</a>${storeAvailable(app) ? `<a class="store" href="${storeUrl(app)}">${esc(storeName(app))}</a>` : ""}</div></article>`).join("")}</div></div></section>`;
 }
 
 function homeGuidesBlock() {
@@ -179,7 +193,7 @@ function tutorialBlock(depth = 0) {
   const tutorials = [
     ["sb3-game-player/open-sb3-files-on-iphone-ipad.html", "Open Scratch SB3 Files on iPhone & iPad", "Import and play an .sb3 project on iOS or iPadOS."],
     ["sb3-file-opener/open-sb3-files-on-android.html", "Open Scratch SB3 Files on Android", "Import and play an .sb3 project on an Android phone or tablet."],
-    ["jre4android/run-jar-files-on-android.html", "How to Run JAR Files on Android", "Use Jre4Android (Jar Runner) to run compatible Java JAR apps directly on Android."],
+    ["jre4android/run-jar-files-on-android.html", "How to Run JAR Files on Android", "Use Jar Runner to run compatible Java JAR apps directly on Android."],
     ["jre4android/java-swing-on-android.html", "Run Java Swing Apps on Android", "Launch desktop-style Java Swing GUI apps with touch, zoom and virtual mouse controls."],
     ["jre4android/run-class-files-on-android.html", "How to Run .class Files on Android", "Run compiled Java CLASS files from your Android device."],
     ["jre4android/j2me-emulator-android.html", "J2ME Emulator for Android", "Run classic Java ME apps and games on Android."],
@@ -190,7 +204,8 @@ function tutorialBlock(depth = 0) {
 }
 
 function appsPage() {
-  const groups = [...new Set(appsData.apps.map((app) => app.category))];
+  const listedApps = appsData.apps.filter(isListed);
+  const groups = [...new Set(listedApps.map((app) => app.category))];
   const sb3Ids = new Set(["sb3-game-player", "sb3-file-opener"]);
   const structuredData = [{
     "@context": "https://schema.org",
@@ -199,7 +214,7 @@ function appsPage() {
     "url": `${appsData.site.url}/apps.html`,
     "description": "Browse Coobbi apps for iPhone, iPad and Android."
   }];
-  return `${head({ title: "Coobbi Apps for iPhone, iPad and Android", description: "Browse Coobbi mobile apps including SB3 Game Player, SB3 File Opener & Player, JarInspector, Java tools, Android file openers, network utilities and server tools.", canonical: `${appsData.site.url}/apps.html`, image: "assets/icons/coobbi.png", structuredData })}<body>${nav("apps")}<section class="page-hero"><div class="container"><h1>Coobbi Mobile Apps</h1><p>Browse Coobbi apps for iPhone, iPad and Android, grouped by the task they help you finish.</p><div class="hero-actions"><a class="btn primary" href="${appsData.site.playDeveloperUrl}">View Android Apps</a></div></div></section><main>${sb3Block()}${groups.map((group) => { const groupApps = appsData.apps.filter((app) => app.category === group && !sb3Ids.has(app.id)); return groupApps.length ? `<section class="container"><div class="section-head"><div><h2>${esc(group)}</h2><p>${esc(groupIntro(group))}</p></div></div><div class="grid apps">${groupApps.map((app) => appCard(app)).join("")}</div></section>` : ""; }).join("")}</main>${footer()}</body></html>`;
+  return `${head({ title: "Coobbi Apps for iPhone, iPad and Android", description: "Browse Coobbi mobile apps including SB3 File Opener & Player, JAR DLL EXE File Viewer, Java tools, Android file openers, network utilities and server tools.", canonical: `${appsData.site.url}/apps.html`, image: "assets/icons/coobbi.png", structuredData })}<body>${nav("apps")}<section class="page-hero"><div class="container"><h1>Coobbi Mobile Apps</h1><p>Browse Coobbi apps for iPhone, iPad and Android, grouped by the task they help you finish.</p><div class="hero-actions"><a class="btn primary" href="${appsData.site.playDeveloperUrl}">View Android Apps</a></div></div></section><main>${sb3Block()}${groups.map((group) => { const groupApps = listedApps.filter((app) => app.category === group && !sb3Ids.has(app.id)); return groupApps.length ? `<section class="container"><div class="section-head"><div><h2>${esc(group)}</h2><p>${esc(groupIntro(group))}</p></div></div><div class="grid apps">${groupApps.map((app) => appCard(app)).join("")}</div></section>` : ""; }).join("")}</main>${footer()}</body></html>`;
 }
 
 function groupIntro(group) {
@@ -214,6 +229,7 @@ function groupIntro(group) {
 
 function appPage(app) {
   const data = play(app);
+  const hasStore = storeAvailable(app);
   const screenshots = (data.screenshots || []).slice(0, 6);
   const structuredData = [{
     "@context": "https://schema.org",
@@ -224,7 +240,7 @@ function appPage(app) {
     "description": app.seoDescription,
     "url": `${appsData.site.url}/${app.slug}/`,
     "image": relativeIcon(app, 1),
-    ...(/^https?:\/\//.test(storeUrl(app)) ? { "sameAs": storeUrl(app) } : {}),
+    ...(hasStore && /^https?:\/\//.test(storeUrl(app)) ? { "sameAs": storeUrl(app) } : {}),
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
   }];
   if (data.rating && data.ratingCount) {
@@ -235,7 +251,9 @@ function appPage(app) {
     };
   }
   const policyLinks = app.supportUrl || app.privacyUrl ? `<section class="card"><h2>Support & Privacy</h2>${app.supportUrl ? `<p><a href="${esc(app.supportUrl)}">Support for ${esc(app.name)}</a></p>` : ""}${app.privacyUrl ? `<p><a href="${esc(app.privacyUrl)}">Privacy Policy</a></p>` : ""}</section>` : "";
-  return `${head({ title: `${app.title} - Coobbi`, description: app.seoDescription, canonical: `${appsData.site.url}/${app.slug}/`, image: relativeIcon(app, 1), depth: 1, structuredData })}<body>${nav("apps", 1)}<section class="page-hero app-hero"><div class="container"><img class="app-icon hero-page-icon" src="${esc(relativeIcon(app, 1))}" alt="${esc(app.name)} icon"><h1>${esc(app.title)}</h1><p>${esc(app.shortDescription)}</p>${appMeta(app)}<div class="hero-actions"><a class="btn primary" href="${storeUrl(app)}">${esc(storeCta(app))}</a><a class="btn secondary" href="../apps.html">More Coobbi Apps</a></div></div></section><main class="container app-detail"><section class="card"><h2>About ${esc(app.name)}</h2><p>${esc(app.seoDescription)}</p>${data.description ? `<p>${esc(data.description)}</p>` : ""}</section><section class="card"><h2>Key Features</h2><ul>${app.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul></section>${screenshots.length ? `<section class="card"><h2>Screenshots</h2><div class="screenshot-strip">${screenshots.map((src) => `<img src="${esc(src)}" alt="${esc(app.name)} screenshot">`).join("")}</div></section>` : ""}${app.tutorials.length ? `<section class="card"><h2>Tutorials</h2><div class="grid tutorials">${app.tutorials.map((tutorial) => `<a class="card tutorial-card" href="${esc(tutorial.href)}"><strong>${esc(tutorial.title)}</strong>${esc(tutorial.description)}</a>`).join("")}</div></section>` : ""}${(app.extraSections || []).map(extraSection).join("")}${policyLinks}<section class="card"><h2>Download ${esc(app.name)}</h2><p>${esc(downloadDescription(app))}</p><a class="btn blue" href="${storeUrl(app)}">${esc(storeCta(app))}</a></section></main>${footer(1)}</body></html>`;
+  const heroStoreAction = hasStore ? `<a class="btn primary" href="${storeUrl(app)}">${esc(storeCta(app))}</a>` : "";
+  const downloadSection = hasStore ? `<section class="card"><h2>Download ${esc(app.name)}</h2><p>${esc(downloadDescription(app))}</p><a class="btn blue" href="${storeUrl(app)}">${esc(storeCta(app))}</a></section>` : "";
+  return `${head({ title: `${app.title} - Coobbi`, description: app.seoDescription, canonical: `${appsData.site.url}/${app.slug}/`, image: relativeIcon(app, 1), depth: 1, structuredData })}<body>${nav("apps", 1)}<section class="page-hero app-hero"><div class="container"><img class="app-icon hero-page-icon" src="${esc(relativeIcon(app, 1))}" alt="${esc(app.name)} icon"><h1>${esc(app.title)}</h1><p>${esc(app.shortDescription)}</p>${appMeta(app)}<div class="hero-actions">${heroStoreAction}<a class="btn secondary" href="../apps.html">More Coobbi Apps</a></div></div></section><main class="container app-detail"><section class="card"><h2>About ${esc(app.name)}</h2><p>${esc(app.seoDescription)}</p>${legacyBrandNote(app)}${data.description ? `<p>${esc(data.description)}</p>` : ""}</section><section class="card"><h2>Key Features</h2><ul>${app.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul></section>${screenshots.length ? `<section class="card"><h2>Screenshots</h2><div class="screenshot-strip">${screenshots.map((src) => `<img src="${esc(src)}" alt="${esc(app.name)} screenshot">`).join("")}</div></section>` : ""}${app.tutorials.length ? `<section class="card"><h2>Tutorials</h2><div class="grid tutorials">${app.tutorials.map((tutorial) => `<a class="card tutorial-card" href="${esc(tutorial.href)}"><strong>${esc(tutorial.title)}</strong>${esc(tutorial.description)}</a>`).join("")}</div></section>` : ""}${(app.extraSections || []).map(extraSection).join("")}${policyLinks}${downloadSection}</main>${footer(1)}</body></html>`;
 }
 
 function extraSection(section) {
