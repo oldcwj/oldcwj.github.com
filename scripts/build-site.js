@@ -100,15 +100,17 @@ function footer(depth = 0) {
   return `<footer class="footer"><div class="footer-inner"><div>© Coobbi. Independent mobile apps and utilities.</div><div><a href="${prefix}index.html">Home</a><a href="${prefix}apps.html">Apps</a><a href="${prefix}tutorials.html">Tutorials</a><a href="${prefix}contact.html">Contact</a><a href="${prefix}privacy.html">Website Privacy</a></div></div></footer>`;
 }
 
-function head({ title, description, canonical, image, depth = 0, structuredData = [] }) {
+function head({ title, description, canonical, image, depth = 0, structuredData = [], twitterTitle, twitterDescription }) {
   const prefix = "../".repeat(depth);
   const tags = structuredData.map(jsonLd).join("");
+  const twitterTags = twitterTitle || twitterDescription ? `\n<meta name="twitter:title" content="${esc(twitterTitle || title)}">\n<meta name="twitter:description" content="${esc(twitterDescription || description)}">` : "";
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><link rel="icon" type="image/png" href="${prefix}assets/icons/coobbi.png"><meta name="description" content="${esc(description)}"><meta name="google-adsense-account" content="${adsenseAccount}"><link rel="canonical" href="${canonical}"><link rel="stylesheet" href="${prefix}assets/style.css">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:type" content="website">
 <meta property="og:image" content="${esc(image)}">
 <meta name="twitter:card" content="summary">
+${twitterTags}
 ${tags}</head>`;
 }
 
@@ -253,12 +255,13 @@ function appPage(app) {
   const policyLinks = app.supportUrl || app.privacyUrl ? `<section class="card"><h2>Support & Privacy</h2>${app.supportUrl ? `<p><a href="${esc(app.supportUrl)}">Support for ${esc(app.name)}</a></p>` : ""}${app.privacyUrl ? `<p><a href="${esc(app.privacyUrl)}">Privacy Policy</a></p>` : ""}</section>` : "";
   const heroStoreAction = hasStore ? `<a class="btn primary" href="${storeUrl(app)}">${esc(storeCta(app))}</a>` : "";
   const downloadSection = hasStore ? `<section class="card"><h2>Download ${esc(app.name)}</h2><p>${esc(downloadDescription(app))}</p><a class="btn blue" href="${storeUrl(app)}">${esc(storeCta(app))}</a></section>` : "";
-  return `${head({ title: `${app.title} - Coobbi`, description: app.seoDescription, canonical: `${appsData.site.url}/${app.slug}/`, image: relativeIcon(app, 1), depth: 1, structuredData })}<body>${nav("apps", 1)}<section class="page-hero app-hero"><div class="container"><img class="app-icon hero-page-icon" src="${esc(relativeIcon(app, 1))}" alt="${esc(app.name)} icon"><h1>${esc(app.title)}</h1><p>${esc(app.shortDescription)}</p>${appMeta(app)}<div class="hero-actions">${heroStoreAction}<a class="btn secondary" href="../apps.html">More Coobbi Apps</a></div></div></section><main class="container app-detail"><section class="card"><h2>About ${esc(app.name)}</h2><p>${esc(app.seoDescription)}</p>${legacyBrandNote(app)}${data.description ? `<p>${esc(data.description)}</p>` : ""}</section><section class="card"><h2>Key Features</h2><ul>${app.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul></section>${screenshots.length ? `<section class="card"><h2>Screenshots</h2><div class="screenshot-strip">${screenshots.map((src) => `<img src="${esc(src)}" alt="${esc(app.name)} screenshot">`).join("")}</div></section>` : ""}${app.tutorials.length ? `<section class="card"><h2>Tutorials</h2><div class="grid tutorials">${app.tutorials.map((tutorial) => `<a class="card tutorial-card" href="${esc(tutorial.href)}"><strong>${esc(tutorial.title)}</strong>${esc(tutorial.description)}</a>`).join("")}</div></section>` : ""}${(app.extraSections || []).map(extraSection).join("")}${policyLinks}${downloadSection}</main>${footer(1)}</body></html>`;
+  return `${head({ title: `${app.title} - Coobbi`, description: app.seoDescription, canonical: `${appsData.site.url}/${app.slug}/`, image: relativeIcon(app, 1), depth: 1, structuredData, twitterTitle: app.twitterTitle, twitterDescription: app.twitterDescription })}<body>${nav("apps", 1)}<section class="page-hero app-hero"><div class="container"><img class="app-icon hero-page-icon" src="${esc(relativeIcon(app, 1))}" alt="${esc(app.name)} icon"><h1>${esc(app.title)}</h1><p>${esc(app.shortDescription)}</p>${appMeta(app)}<div class="hero-actions">${heroStoreAction}<a class="btn secondary" href="../apps.html">More Coobbi Apps</a></div></div></section><main class="container app-detail"><section class="card"><h2>About ${esc(app.name)}</h2><p>${esc(app.seoDescription)}</p>${legacyBrandNote(app)}${data.description ? `<p>${esc(data.description)}</p>` : ""}</section><section class="card"><h2>Key Features</h2><ul>${app.features.map((feature) => `<li>${esc(feature)}</li>`).join("")}</ul></section>${screenshots.length ? `<section class="card"><h2>Screenshots</h2><div class="screenshot-strip">${screenshots.map((src) => `<img src="${esc(src)}" alt="${esc(app.name)} screenshot">`).join("")}</div></section>` : ""}${app.tutorials.length ? `<section class="card"><h2>Tutorials</h2><div class="grid tutorials">${app.tutorials.map((tutorial) => `<a class="card tutorial-card" href="${esc(tutorial.href)}"><strong>${esc(tutorial.title)}</strong>${esc(tutorial.description)}</a>`).join("")}</div></section>` : ""}${(app.extraSections || []).map(extraSection).join("")}${policyLinks}${downloadSection}</main>${footer(1)}</body></html>`;
 }
 
 function extraSection(section) {
   const links = section.links || (section.link ? [section.link] : []);
-  return `<section class="card"${section.id ? ` id="${esc(section.id)}"` : ""}><h2>${esc(section.title)}</h2><p>${esc(section.body)}</p>${links.map((link) => `<p><a href="${esc(link.href)}">${esc(link.text)}</a></p>`).join("")}</section>`;
+  const faq = section.faq?.length ? `<div class="article-faq">${section.faq.map((item) => `<details><summary>${esc(item.question)}</summary><p>${esc(item.answer)}</p></details>`).join("")}</div>` : "";
+  return `<section class="card"${section.id ? ` id="${esc(section.id)}"` : ""}><h2>${esc(section.title)}</h2><p>${esc(section.body)}</p>${links.map((link) => `<p><a href="${esc(link.href)}">${esc(link.text)}</a></p>`).join("")}${faq}</section>`;
 }
 
 function privacyPage() {

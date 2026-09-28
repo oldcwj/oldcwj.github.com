@@ -218,12 +218,47 @@
       "storeUrl": "https://apps.apple.com/us/app/jarinspector-jar-viewer/id6792224147",
       "featured": true,
       "title": "JAR DLL EXE File Viewer for iPhone & iPad",
-      "shortDescription": "Inspect JAR, ZIP, CLASS, DLL and EXE files locally on iPhone and iPad.",
-      "seoDescription": "JAR DLL EXE File Viewer is an offline iPhone and iPad tool for browsing Java archives, reviewing manifests and classes, and inspecting EXE and DLL file structure.",
+      "shortDescription": "Open and inspect JAR, ZIP, CLASS, DLL and EXE files on iPhone and iPad. Browse archives, inspect Java CLASS files and review PE file structure locally.",
+      "seoDescription": "View and inspect JAR, ZIP, CLASS, DLL and EXE files on iPhone and iPad. Browse archives, inspect Java CLASS files and review PE headers and file structure locally.",
+      "twitterTitle": "JAR DLL EXE File Viewer for iPhone & iPad",
+      "twitterDescription": "View and inspect JAR, ZIP, CLASS, DLL and EXE files on iPhone and iPad. Browse archives, inspect Java CLASS files and review PE headers and file structure locally.",
       "legacyBrandNote": "Previously known as JarInspector: JAR Viewer.",
       "keywords": ["JAR file opener iPhone", "JAR viewer iOS", "Java class viewer", "MANIFEST.MF viewer"],
-      "features": ["Open JAR, ZIP, CLASS, DLL and EXE files", "Browse Java archives and resources", "View MANIFEST.MF metadata", "Decompile supported Java classes", "Inspect PE headers and structure", "Process files locally"],
+      "features": ["Open JAR, ZIP, CLASS, DLL and EXE files", "Browse JAR and ZIP archives", "Inspect MANIFEST.MF metadata and archive resources", "Inspect Java CLASS files and decompile supported classes", "Review PE headers and file structure", "Import and analyze files locally on iPhone and iPad"],
       "tutorials": [],
+      "extraSections": [
+        {
+          "title": "Open JAR Files on iPhone & iPad",
+          "body": "Open JAR files on iPhone and iPad and browse archive contents, MANIFEST.MF metadata, Java CLASS files and bundled resources. Viewing an archive does not run its Java application."
+        },
+        {
+          "title": "Inspect DLL and EXE Files on iPhone & iPad",
+          "body": "Inspect Windows DLL and EXE files without executing them. Review PE headers and other available file structure details directly on iPhone and iPad."
+        },
+        {
+          "title": "View Java CLASS Files",
+          "body": "Inspect Java CLASS files and view supported decompiled Java output for local file analysis."
+        },
+        {
+          "title": "Try Online Tools",
+          "body": "Use Coobbi's browser-based tools for local file inspection before or alongside using the iPhone and iPad app.",
+          "links": [
+            {"href": "../file-inspector/", "text": "Inspect a file online"},
+            {"href": "../dll-inspector/", "text": "Inspect a DLL online"},
+            {"href": "../exe-inspector/", "text": "Inspect an EXE online"}
+          ]
+        },
+        {
+          "title": "File Viewer FAQ",
+          "body": "Short answers about viewing technical file formats on iPhone and iPad.",
+          "faq": [
+            {"question": "Can I open JAR files on iPhone?", "answer": "Yes. JAR DLL EXE File Viewer can browse JAR archive contents, including supported manifests, CLASS files and resources. It does not run JAR applications."},
+            {"question": "Can iPhone open DLL files?", "answer": "The app can inspect DLL file structure locally, but iPhone and iPad do not execute Windows DLL files."},
+            {"question": "Can I view EXE files on iPhone?", "answer": "The app can review available PE headers and file structure details, but it does not run Windows EXE programs."},
+            {"question": "Can I view Java CLASS files on iPhone?", "answer": "You can inspect Java CLASS files and view supported decompiled Java output."}
+          ]
+        }
+      ],
       "supportUrl": "support.html",
       "privacyUrl": "privacy.html"
     }
