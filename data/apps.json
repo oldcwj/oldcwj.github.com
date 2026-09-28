@@ -71,7 +71,18 @@
       "seoDescription": "DLL File Viewer & EXE Viewer helps Android users open Windows DLL and EXE files, inspect executable metadata, view headers and understand portable executable file details.",
       "keywords": ["DLL file viewer Android", "EXE file viewer Android", "open DLL files", "open EXE files", "portable executable viewer"],
       "features": ["Open DLL files on Android", "Open EXE files on Android", "Inspect portable executable metadata", "View headers and file details", "Check imports and exports when available", "Useful for developers and file analysis"],
-      "tutorials": []
+      "tutorials": [],
+      "extraSections": [
+        {
+          "title": "Try Online Tools",
+          "body": "Inspect DLL, EXE and PE file structure locally in your browser before opening the file on a mobile device.",
+          "links": [
+            {"href": "../dll-inspector/", "text": "DLL Inspector"},
+            {"href": "../exe-inspector/", "text": "EXE Inspector"},
+            {"href": "../file-inspector/", "text": "File Inspector"}
+          ]
+        }
+      ]
     },
     {
       "id": "pages-file-opener",
@@ -98,7 +109,7 @@
       "featured": false,
       "title": "INI File Opener & Editor for Android",
       "shortDescription": "Open, view, edit and format INI, CONF and CFG configuration files on Android.",
-      "seoDescription": "INI File Opener & Editor lets Android users open, edit, search, format and save INI configuration files, including common CONF, CFG and properties files.",
+      "seoDescription": "INI File Opener & Editor lets Android users open, view, edit, search, format and save INI configuration files, including common CONF, CFG and properties files.",
       "keywords": ["INI file opener Android", "open INI files", "INI viewer Android", "configuration file viewer"],
       "features": ["Open .ini files on Android", "View and edit sections, keys and values", "Search configuration text", "Format INI content", "Save or export a copy", "Back up before saving"],
       "tutorials": []

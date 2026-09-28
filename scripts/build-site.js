@@ -257,7 +257,8 @@ function appPage(app) {
 }
 
 function extraSection(section) {
-  return `<section class="card"${section.id ? ` id="${esc(section.id)}"` : ""}><h2>${esc(section.title)}</h2><p>${esc(section.body)}</p>${section.link ? `<p><a href="${esc(section.link.href)}">${esc(section.link.text)}</a></p>` : ""}</section>`;
+  const links = section.links || (section.link ? [section.link] : []);
+  return `<section class="card"${section.id ? ` id="${esc(section.id)}"` : ""}><h2>${esc(section.title)}</h2><p>${esc(section.body)}</p>${links.map((link) => `<p><a href="${esc(link.href)}">${esc(link.text)}</a></p>`).join("")}</section>`;
 }
 
 function privacyPage() {
