@@ -261,6 +261,34 @@
       ],
       "supportUrl": "support.html",
       "privacyUrl": "privacy.html"
+    },
+    {
+      "id": "mbox-file-viewer",
+      "name": "MBOX File Viewer",
+      "category": "iPhone & iPad Apps",
+      "slug": "mbox-file-viewer",
+      "platform": "iOS and iPadOS",
+      "storeAvailable": false,
+      "icon": "assets/icons/coobbi.png",
+      "featured": false,
+      "title": "MBOX File Viewer for iPhone & iPad",
+      "shortDescription": "Open, search and export MBOX email archives privately on iPhone and iPad, with all archive processing performed on your device.",
+      "seoDescription": "MBOX File Viewer opens, searches and exports MBOX email archives locally on iPhone and iPad. No email account, cloud upload, IMAP or POP3 connection is required.",
+      "keywords": ["MBOX viewer iPhone", "open MBOX files iPad", "email archive viewer iOS", "Gmail Takeout MBOX viewer"],
+      "features": ["Open MBOX email archives from Files and document providers", "Read plain-text and supported HTML email locally", "Search subjects and senders", "Build an optional local full-text search index with Lifetime Pro", "Preview compatible attachments and export EML or PDF files", "Block remote HTML email images and web requests by default"],
+      "tutorials": [],
+      "extraSections": [
+        {
+          "title": "Private, On-Device Archive Viewing",
+          "body": "Your MBOX archive is read on your iPhone or iPad. The app does not require an email account, Gmail sign-in, cloud upload, IMAP or POP3 connection."
+        },
+        {
+          "title": "Open Large Archives with Progress",
+          "body": "The app scans archives in small chunks and builds a lightweight message index, so it does not need to load every message body into memory at once."
+        }
+      ],
+      "supportUrl": "support.html",
+      "privacyUrl": "privacy.html"
     }
   ]
 }
