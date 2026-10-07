@@ -271,7 +271,7 @@ function privacyPage() {
 }
 
 function sitemap() {
-  const staticPages = ["", "apps.html", "tutorials.html", "contact.html", "privacy.html", "cnc-machinist-tools/privacy.html", "cnc-machinist-tools/support.html", "fit-file-viewer/privacy.html", "fit-file-viewer/support.html", "file-inspector/", "hex-viewer/", "strings-viewer/", "file-hash-calculator/", "exe-inspector/", "dll-inspector/"];
+  const staticPages = ["", "apps.html", "tutorials.html", "contact.html", "privacy.html", "cnc-machinist-tools/privacy.html", "cnc-machinist-tools/support.html", "fit-file-viewer/privacy.html", "fit-file-viewer/support.html", "mbox-file-viewer-android/privacy.html", "file-inspector/", "hex-viewer/", "strings-viewer/", "file-hash-calculator/", "exe-inspector/", "dll-inspector/"];
   const appPages = appsData.apps.map((app) => `${app.slug}/`);
   const tutorialPages = [
     "jre4android/run-jar-files-on-android.html",
